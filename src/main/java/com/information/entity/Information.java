@@ -18,7 +18,6 @@ import java.util.Date;
 @TableName("information")
 public class Information {
     //id
-    @TableId(value = "id",type = IdType.AUTO)
     private String id;
     //姓名
     private String name;
