@@ -112,6 +112,9 @@ function addother() {
         "        </tr>");
 
 }
+function toList() {
+    window.location.href="./secendhtml/list.html";
+}
 var E = window.wangEditor
 var editor2 = new E('#jianli')
 editor2.create()
