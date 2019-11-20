@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="short icon" href="../img/arrow1.png" >
+</head>
+<body>
+<div class="lowin lowin-blue" id="loginBox">
+    <div class="lowin-brand">
+        <img src="../img/kodinger.jpg" alt="logo">
+    </div>
+    <div class="lowin-wrapper">
+        <div class="lowin-box lowin-login">
+            <div class="lowin-box-inner">
+                <p>登录</p>
+                <div class="lowin-group">
+                    <label>用户名</label>
+                    <input type="text" autocomplete="username" id="userName" class="lowin-input" title="用户名" >
+                </div>
+                <div class="lowin-group password-group">
+                    <label>密码</label>
+                    <input type="password" id="password" autocomplete="current-password" class="lowin-input" title="密码" >
+                </div>
+                <input type="submit" name="login" class="lowin-btn" id="login" value="Sign in" onclick="login()"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    //登录框上下居中
+    function middle(){
+        //获取屏幕的高度
+        var heightBig=window.innerHeight;
+        //获取元素的高度
+        var d1=document.querySelector(".lowin-wrapper");
+        var heightSmall=parseFloat(window.getComputedStyle(d1).height);
+        d1.style.margin=(heightBig-heightSmall)/2-400+"px auto";
+    }
+    middle();
+    window.onresize=middle;
+    //回车触发登录事件
+    $(document).keyup(function (event) {
+        if (event.keyCode==13){
+            $("#login").trigger("click");
+        }
+    })
+    /*
+     *boss登录
+     */
+    var login = function () {
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        var boss =  {"boss_userName":userName,"boss_password":password};
+        if(userName==null||userName==""){
+            alert("请输入用户名！");
+        }else if(password==null||password==""){
+            alert("请输入密码！");
+        }else{
+            $.ajax({
+                url:"/data_miner/boss/login/",
+                dataType:"json",
+                async:true,
+                data:boss,
+                type:"POST",
+                success:function(req){
+                    if(req.flag===true){
+                        window.location.href="/data_miner/bossPersonalCenter.html";
+                    }else{
+                        alert(req.message);
+                        myReload();
+                    }
+                },
+                error:function(req){
+                    alert(req.message);
+                }
+            });
+        }
+    }
+</script>
+</html>
