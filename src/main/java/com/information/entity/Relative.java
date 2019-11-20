@@ -15,7 +15,7 @@ public class Relative {
     //id
     private String rid;
     //姓名
-    private String name;
+    private String rname;
     //年龄
     private int age;
     //称谓

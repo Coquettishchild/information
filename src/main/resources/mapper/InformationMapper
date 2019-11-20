@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.information.dao.InforDao">
+    <resultMap id="infor" type="com.information.entity.Information">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+        <result column="nation" property="nation"/>
+        <result column="nativeplace" property="nativeplace"/>
+        <result column="birthplace" property="birthplace"/>
+        <result column="health" property="health"/>
+        <result column="party" property="party"/>
+        <result column="joinTime" property="joinTime"/>
+        <result column="heading" property="heading"/>
+        <result column="post" property="post"/>
+        <result column="major" property="major"/>
+        <result column="fulltimeschooling" property="fulltimeschooling"/>
+        <result column="inserviceeducation" property="inserviceeducation"/>
+        <result column="fulltimesgraduated" property="fulltimesgraduated"/>
+        <result column="inservicegraduated" property="inservicegraduated"/>
+        <result column="position" property="position"/>
+        <result column="resume" property="resume"/>
+        <result column="rewards" property="rewards"/>
+        <result column="petition" property="petition"/>
+        <result column="misrepresentation" property="misrepresentation"/>
+        <result column="preliminary" property="preliminary"/>
+        <result column="integrity" property="integrity"/>
+        <result column="othermaterials" property="othermaterials"/>
+        <collection property="list" ofType="com.information.entity.Relative">
+            <id column="rid" property="rid"/>
+            <result column="rname" property="rname"/>
+            <result column="age" property="age"/>
+            <result column="appellation" property="appellation"/>
+            <result column="politicaloutlook" property="politicaloutlook"/>
+            <result column="workunit" property="workunit"/>
+            <result column="inforid" property="inforid"/>
+        </collection>
+    </resultMap>
+    <resultMap id="infors" type="com.information.entity.Information">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+        <result column="nation" property="nation"/>
+        <result column="nativeplace" property="nativeplace"/>
+        <result column="birthplace" property="birthplace"/>
+        <result column="health" property="health"/>
+        <result column="party" property="party"/>
+        <result column="joinTime" property="joinTime"/>
+        <result column="heading" property="heading"/>
+        <result column="post" property="post"/>
+        <result column="major" property="major"/>
+        <result column="fulltimeschooling" property="fulltimeschooling"/>
+        <result column="inserviceeducation" property="inserviceeducation"/>
+        <result column="fulltimesgraduated" property="fulltimesgraduated"/>
+        <result column="inservicegraduated" property="inservicegraduated"/>
+        <result column="position" property="position"/>
+        <result column="resume" property="resume"/>
+        <result column="rewards" property="rewards"/>
+        <result column="petition" property="petition"/>
+        <result column="misrepresentation" property="misrepresentation"/>
+        <result column="preliminary" property="preliminary"/>
+        <result column="integrity" property="integrity"/>
+        <result column="othermaterials" property="othermaterials"/>
+    </resultMap>
+    <select id="getInformation" resultMap="infor">
+        select information.*,relative.* from information,relative where rid = id and id =#{id}
+    </select>
+
+    <select id="getAll" resultMap="infors">
+        select information.* from information limit #{pageNo},#{pageSize}
+    </select>
+
+    <select id="searchByName" resultMap="infors">
+        select information.* from information where name = #{name}
+    </select>
+</mapper>
+
