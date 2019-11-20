@@ -1,5 +1,7 @@
 package com.information.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -13,6 +15,7 @@ import lombok.Data;
 @TableName("relative")
 public class Relative {
     //id
+    @TableId(value = "rid",type = IdType.AUTO)
     private String rid;
     //姓名
     private String rname;
