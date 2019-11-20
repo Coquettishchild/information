@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-
+import java.util.List;
 import java.util.Date;
 
 /**
@@ -30,6 +30,8 @@ public class Information {
     private String nation;
     //籍贯
     private String nativeplace;
+    //头像路径
+    private String heading;
     //出生地
     private String birthplace;
     //健康状况
@@ -68,5 +70,6 @@ public class Information {
     private String integrity;
     //其他材料
     private String othermaterials;
-
+    //关系
+    private List<Relative> list;
 }
