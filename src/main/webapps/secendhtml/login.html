@@ -8,10 +8,10 @@
 </head>
 <body>
 <div class="lowin lowin-blue" id="loginBox">
-    <div class="lowin-brand">
-        <img src="../img/kodinger.jpg" alt="logo">
-    </div>
     <div class="lowin-wrapper">
+        <div class="lowin-brand">
+            <img src="../img/logo.png" alt="logo">
+        </div>
         <div class="lowin-box lowin-login">
             <div class="lowin-box-inner">
                 <p>登录</p>
@@ -38,7 +38,7 @@
         //获取元素的高度
         var d1=document.querySelector(".lowin-wrapper");
         var heightSmall=parseFloat(window.getComputedStyle(d1).height);
-        d1.style.margin=(heightBig-heightSmall)/2-400+"px auto";
+        d1.style.margin=(heightBig-heightSmall)/2-300+"px auto";
     }
     middle();
     window.onresize=middle;

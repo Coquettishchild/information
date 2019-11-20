@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	background-color: #fbfbfb;
 	text-align: center;
-	background:url('../img/bg.jpg') center / cover;
+	background:url('../img/bg (2).jpg') center / cover no-repeat;
 	overflow:hidden;
 }
 
@@ -69,7 +69,9 @@ body {
 }
 
 .lowin .lowin-brand img {
+	bottom: 3px;
 	width: 100%;
+	position: relative;
 }
 
 .lowin .lowin-box {
@@ -82,7 +84,7 @@ body {
 	background-color: #fff;
 	-webkit-box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
 	        box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
-	padding: 60px 25px 25px 25px;
+	padding: 60px 25px 40px 25px;
 	text-align: left;
 	border-radius: 3px;
 }
@@ -112,7 +114,7 @@ body {
 }
 
 .lowin .lowin-box p {
-	color: var(--color-semidark);
+	color: #c6003b;
 	font-weight: 700;
 	margin-bottom: 20px;
 	text-align: center;
@@ -120,34 +122,6 @@ body {
 }
 
 .lowin .lowin-box .message {
-	color: var(--color-semidark);
-	font-weight: 700;
-	margin-bottom: 20px;
-	font-size:14px;
-	text-align:left;
-}
-.lowin .lowin-box .message1 {
-	color: var(--color-semidark);
-	font-weight: 700;
-	margin-bottom: 20px;
-	font-size:14px;
-	text-align:left;
-}
-.lowin .lowin-box .message2 {
-	color: var(--color-semidark);
-	font-weight: 700;
-	margin-bottom: 20px;
-	font-size:14px;
-	text-align:left;
-}
-.lowin .lowin-box .message3 {
-	color: var(--color-semidark);
-	font-weight: 700;
-	margin-bottom: 20px;
-	font-size:14px;
-	text-align:left;
-}
-.lowin .lowin-box .message4 {
 	color: var(--color-semidark);
 	font-weight: 700;
 	margin-bottom: 20px;
@@ -162,7 +136,7 @@ body {
 	margin-bottom: 5px;
 	display: inline-block;
 	width: 100%;
-	color: var(--color-semidark);
+	color: #c6003b;
 	font-weight: 700;
 }
 
@@ -172,7 +146,7 @@ body {
 
 .lowin .lowin-box .lowin-input {
 	background-color: var(--color-grey);
-	color: var(--color-dark);
+	color: #c6003b;
 	border: none;
 	border-radius: 3px;
 	padding: 15px 20px;
@@ -182,8 +156,8 @@ body {
 }
 
 .lowin-input1{
-	background-color: var(--color-grey);
-	color: var(--color-dark);
+	background-color: #c6003b;
+	color: #c6003b;
 	border: none;
 	border-radius: 3px;
 	outline: 0;
@@ -203,9 +177,9 @@ body {
 	color: #fff;
 	padding: 15px;
 	border-radius: 3px;
-	background-color: var(--color-primary);
-	-webkit-box-shadow: 0 2px 7px var(--color-semidark);
-	        box-shadow: 0 2px 7px var(--color-semidark);
+	background-color: #c6003b;
+	-webkit-box-shadow: 0 2px 7px #c6003b;
+	        box-shadow: 0 2px 7px #c6003b;
 	font-weight: 700;
 	outline: 0;
 	cursor: pointer;
@@ -221,22 +195,6 @@ body {
 
 .lowin .lowin-box .lowin-btn:hover {
 	opacity: .9;
-}
-
-.lowin .text-foot {
-	text-align: center;
-	padding: 10px;
-	font-weight: 700;
-	margin-top: 20px;
-	color: var(--color-semidark);
-}
-
-.lowin .lowin-footer {
-	text-align: center;
-/* 	margin: 30px 0; */
-	font-size: 12px;
-	color: var(--color-semidark);
-	font-weight: 700;
 }
 
 .lowin .login-back-link {
