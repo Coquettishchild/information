@@ -3,6 +3,8 @@ package com.information.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.information.entity.Relative;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 /**
  * @description:
@@ -12,5 +14,5 @@ import java.util.List;
  */
 @Mapper
 public interface RelativeDao extends BaseMapper<Relative> {
-    void insertList(List<Relative> re)throws Exception;
+    void insertList(@Param("list") List<Relative> re)throws Exception;
 }

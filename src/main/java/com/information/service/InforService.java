@@ -1,11 +1,11 @@
 package com.information.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.information.dao.InforDao;
 import com.information.dao.RelativeDao;
 import com.information.entity.Information;
 import com.information.entity.Relative;
 import com.information.vo.Result;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +21,9 @@ import java.util.UUID;
  */
 @Service
 public class InforService {
+
+    private static final Logger logger = Logger.getLogger(InforService.class);
+
     @Autowired
     private InforDao idao;
 
@@ -51,11 +54,12 @@ public class InforService {
             re.setMessage("插入成功");
             re.setSuccess(true);
             re.setObj(null);
+            logger.info("插入成功");
         } catch (Exception e) {
-            e.printStackTrace();
             re.setSuccess(false);
             re.setMessage("插入失败");
             re.setObj(null);
+            logger.info("插入失败",e);
         }
         return re;
     }
@@ -83,10 +87,11 @@ public class InforService {
             re.setMessage("更新成功");
             re.setSuccess(true);
             re.setObj(null);
+            logger.info("更新成功");
         }catch (Exception e){
-            e.printStackTrace();
             re.setSuccess(false);
             re.setMessage("更新失败");
+            logger.info("更新失败",e);
         }
         return re;
     }
@@ -108,11 +113,12 @@ public class InforService {
             re.setMessage("删除成功");
             re.setSuccess(true);
             re.setObj(null);
+            logger.info("删除成功");
         }catch (Exception e){
-            e.printStackTrace();
             re.setSuccess(false);
             re.setMessage("删除失败");
             re.setObj(null);
+            logger.info("删除失败",e);
         }
         return re;
     }
@@ -134,18 +140,19 @@ public class InforService {
             re.setObj(list);
             re.setMessage("查找成功");
             re.setSuccess(true);
+            logger.info("分页查找成功");
         } catch (Exception e) {
-            e.printStackTrace();
             re.setMessage("查找失败");
             re.setSuccess(false);
             re.setObj(null);
+            logger.info("分页查找失败",e);
         }
         return re;
     }
 
     /**
-     *
-     * @param 获取文件详情
+     * 获取文件详情
+     * @param
      * @return
      * @since v1.0.0
      * author CrazyChild
@@ -159,11 +166,12 @@ public class InforService {
             re.setObj(in);
             re.setSuccess(true);
             re.setMessage("查找成功");
+            logger.info("文件查找成功");
         } catch (Exception e) {
-            e.printStackTrace();
             re.setSuccess(false);
             re.setMessage("查找失败");
             re.setObj(null);
+            logger.info("文件查找失败",e);
         }
         return  re;
     }
@@ -184,11 +192,12 @@ public class InforService {
             re.setObj(list);
             re.setMessage("查询成功");
             re.setSuccess(true);
+            logger.info("用户名查找成功");
         } catch (Exception e) {
-            e.printStackTrace();
             re.setSuccess(false);
             re.setMessage("查询失败");
             re.setObj(null);
+            logger.info("用户名查找失败",e);
         }
         return re;
     }
