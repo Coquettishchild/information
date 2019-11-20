@@ -1,0 +1,33 @@
+#list{
+    width: 80% !important;
+    margin: 0 auto !important;
+}
+.fileset{
+    border-color: #0f0f0f;
+    padding: 30px;
+    border: 1px solid #d0d0d0;
+    margin: 30px !important;
+    border-radius: 1%;
+}
+legend{
+    width: auto;!important;
+    text-decoration: none;
+    border: none;
+}
+td{
+    text-align: center;
+}
+th{
+    text-align: center;
+}
+
+.page{
+   text-align: center;
+}
+#search{
+    width: 70%;
+    display: inline-block;
+}
+#btnsearch{
+    display: inline-block;
+}
