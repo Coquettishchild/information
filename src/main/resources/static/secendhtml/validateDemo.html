@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>validateDemo</title>
+
+</head>
+<body>
+<form  id="myform" action="/de">
+    请输入账号：
+    <input id="username"  type="text" name="username">
+    请输入密码：
+    <input id="password" type="password" name="password">
+    <button class="one" type="submit">提交</button>
+</form>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="http://malsup.github.io/jquery.form.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#myform").validate({
+            rules:{
+                username:{
+                    required:true,
+                    checkUsername:true
+                },
+                password:{
+                    required:true,
+                    rangelength:[8,12]
+                }
+            },
+            message:{
+                username:{
+                    required:"用户名不能为空",
+                    checkUsername:"用户名已存在"
+                },
+                password:{
+                    required:"密码不能为空",
+                    rangelength:"至少输入6个字符,但是不超过12个字符"
+                }
+            },
+            onkeyup:false,
+            debug: true,
+            success:"valid",
+            submitHandler:function(form){
+                $(form).ajaxSubmit({
+                    type: 'POST',
+                    url: "/de" ,
+                    success: function(data){
+
+                    },
+                    error: function(){
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>
