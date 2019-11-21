@@ -1,7 +1,5 @@
 package com.information.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -18,7 +16,6 @@ import java.util.Date;
 @TableName("information")
 public class Information {
     //id
-    @TableId(value = "id",type = IdType.AUTO)
     private String id;
     //姓名
     private String name;
@@ -38,7 +35,7 @@ public class Information {
     private String health;
     //入党时间
     @JsonFormat(pattern = "yyyy.MM",locale = "zh",timezone = "GMY+8")
-    private Data party;
+    private Date party;
     //参加工作时间
     @JsonFormat(pattern = "yyyy.MM",locale = "zh",timezone = "GMY+8")
     private Date joinTime;
@@ -60,16 +57,6 @@ public class Information {
     private String resume;
     //奖惩情况
     private String rewards;
-    //信访及处理情况
-    private String petition;
-    //因不实报个人事项收到处理情况
-    private String misrepresentation;
-    //谈话函初核等有关材料
-    private String preliminary;
-    //党风廉政回复
-    private String integrity;
-    //其他材料
-    private String othermaterials;
     //关系
     private List<Relative> list;
 }

@@ -40,6 +40,7 @@ public class InforService {
      */
     @Transactional
     public Result insertInfor(Information infor){
+        logger.info(infor);
         Result re = new Result();
         try {
             List<Relative> list = infor.getList();
@@ -81,8 +82,12 @@ public class InforService {
             List<Relative> list = infor.getList();
             infor.setList(null);
             idao.updateById(infor);
-            for(int i = 0 ;i<list.size();i++){
-                rdao.updateById(list.get(i));
+            if (list!=null){
+                if (!list.isEmpty()){
+                    for(int i = 0 ;i<list.size();i++){
+                        rdao.updateById(list.get(i));
+                    }
+                }
             }
             re.setMessage("更新成功");
             re.setSuccess(true);

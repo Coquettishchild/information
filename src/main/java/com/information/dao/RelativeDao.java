@@ -14,5 +14,5 @@ import java.util.List;
  */
 @Mapper
 public interface RelativeDao extends BaseMapper<Relative> {
-    void insertList(@Param("list") List<Relative> re)throws Exception;
+    void insertList(@Param("list") List<Relative> list)throws Exception;
 }

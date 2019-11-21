@@ -1,4 +1,4 @@
-/**
+﻿/**
  * bootstrap-paginator.js v0.5
  * --
  * Copyright 2013 Yun Lai <lyonlai1984@gmail.com>
@@ -614,13 +614,17 @@
         itemTexts: function (type, page, current) {
             switch (type) {
             case "first":
-                return "&lt;&lt;";
+                //return "&lt;&lt;";
+                return "首页";
             case "prev":
-                return "&lt;";
+               // return "&lt;";
+                return "上一页";
             case "next":
-                return "&gt;";
+                //return "&gt;";
+                return "下一页";
             case "last":
-                return "&gt;&gt;";
+                //return "&gt;&gt;";
+                return "末页";
             case "page":
                 return page;
             }
