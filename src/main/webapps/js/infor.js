@@ -113,7 +113,7 @@ function addother() {
 
 }
 function toList() {
-    window.location.href="./secendhtml/list.html";
+    window.location.href="./list.html";
 }
 var E = window.wangEditor
 var editor2 = new E('#jianli')

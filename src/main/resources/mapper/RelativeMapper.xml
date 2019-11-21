@@ -8,7 +8,7 @@
         <foreach collection="list" item="item" index="index" separator=",">
             (
             #{item.rid},
-            #{item.rname},
+            #{item.name},
             #{item.age},
             #{item.appellation},
             #{item.politicaloutlook},
