@@ -41,12 +41,12 @@ public class InforController {
     }
 
     @PostMapping
-    public Result insertInfo(Information info){
+    public Result insertInfo(@RequestBody Information info){
         return service.insertInfor(info);
     }
 
     @PatchMapping
-    public Result updateInfo(Information infor) {
+    public Result updateInfo(@RequestBody Information infor) {
         return service.updateInfor(infor);
     }
 
