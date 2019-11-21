@@ -1,9 +1,11 @@
 package com.information.controller;
 
 import com.information.dao.RelativeDao;
+import com.information.entity.Relative;
+import com.information.service.RelativeService;
+import com.information.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @description:
@@ -15,6 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/relative")
 public class RelativeController {
     @Autowired
-    private RelativeDao dao;
+    private RelativeService service;
 
+    @DeleteMapping
+    public Result delete(@RequestParam("id") int id){
+        return service.delete(id);
+    }
+
+    @PostMapping
+    public Result add(@RequestBody Relative relative){
+        return service.add(relative);
+    }
 }

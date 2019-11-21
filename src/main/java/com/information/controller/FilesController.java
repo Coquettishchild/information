@@ -5,9 +5,11 @@ import com.information.entity.Files;
 import com.information.service.FilesService;
 import com.information.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import java.util.UUID;
+import java.io.File;
 /**
  * @description:
  * @author: CrazyChild
@@ -19,7 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class FilesController {
     @Autowired
     private FilesService service;
-
+    //文件路径
+    private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"\\file\\";
     @PostMapping
     public Result add(@RequestBody Files files){
         return service.add(files);
@@ -34,9 +37,22 @@ public class FilesController {
     public Result upload(MultipartFile file){
         Result re = new Result();
         try{
-
+            String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
+            String filename = PATH+temp+file.getOriginalFilename();
+            File dest = new File(filename);
+            if(!dest.exists()){
+                dest.createNewFile();
+            }
+            //保存文件
+            file.transferTo(dest);
+            re.setSuccess(true);
+            re.setMessage("上传成功");
+            re.setObj(filename);
         }catch (Exception e){
-
+            e.printStackTrace();
+            re.setSuccess(false);
+            re.setMessage("上传失败");
+            re.setObj(null);
         }
         return re;
     }

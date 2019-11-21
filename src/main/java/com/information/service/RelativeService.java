@@ -32,4 +32,20 @@ public class RelativeService {
         }
         return re;
     }
+
+    public Result add(Relative relative){
+        Result re = new Result();
+        try{
+            dao.insert(relative);
+            re.setObj(null);
+            re.setMessage("添加成功");
+            re.setSuccess(true);
+        }catch (Exception e){
+            e.printStackTrace();
+            re.setObj(null);
+            re.setMessage("添加失败");
+            re.setSuccess(false);
+        }
+        return re;
+    }
 }
