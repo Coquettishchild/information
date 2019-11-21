@@ -38,6 +38,7 @@ public class InforService {
      * description 插入
      * date 2019/11/19
      */
+    //先插入主infor，然后批量插入文件和关系
     @Transactional
     public Result insertInfor(Information infor){
         logger.info(infor);
