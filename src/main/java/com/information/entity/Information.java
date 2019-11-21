@@ -59,4 +59,5 @@ public class Information {
     private String rewards;
     //关系
     private List<Relative> list;
+    //
 }
