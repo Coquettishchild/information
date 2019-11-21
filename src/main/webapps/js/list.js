@@ -1,7 +1,6 @@
 //查看档案信息
 $('.edit').on("click",function () {
-    var name = $(this).parent().siblings(".name").text();
-
+    var id = $(this).parent().siblings(".id").text();
     function getInfo(id){
         $.ajax({
             url: "/information/info/"+id,
