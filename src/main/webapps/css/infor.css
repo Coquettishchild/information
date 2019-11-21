@@ -9,3 +9,11 @@ td{
     text-align: center;
     line-height: 30px !important;
 }
+#table{
+    width: 80%;
+    margin: 0 auto;
+}
+td>img{
+    width: 150px;
+    height: 200px;
+}
