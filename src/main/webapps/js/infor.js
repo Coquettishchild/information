@@ -118,3 +118,22 @@ function toList() {
 var E = window.wangEditor
 var editor2 = new E('#jianli')
 editor2.create()
+
+//填写个人信息
+var name = $('#name').val();
+var sex = $('#sex').val();
+var birthday = $('#birthday').val();
+var heading = $('#heading').val();
+var nantion = $('#nantion').val();
+var nativeplace = $('#nativeplace').val();
+var birthplace = $('#birthplace').val();
+var party = $('#party').val();
+var joinTime = $('#joinTime').val();
+var health = $('#health').val();
+var post = $('#post').val();
+var fulltimeschooling = $('#fulltimeschooling').val();
+var fulltimesgraduated = $('#fulltimesgraduated').val();
+var inserviceeducation = $('#inserviceeducation').val();
+var inservicegraduated = $('#inservicegraduated').val();
+var position = $('#position').val();
+var jianli = $('#jianli').val();

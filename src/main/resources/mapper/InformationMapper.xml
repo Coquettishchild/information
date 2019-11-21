@@ -55,15 +55,15 @@
         <result column="rewards" property="rewards"/>
     </resultMap>
     <select id="getInformation" resultMap="infor">
-        select information.*,relative.* from information,relative where rid = id and id =#{id}
+        select information.*,`relative`.* from information,`relative` where inforid = id and id =#{id}
     </select>
 
     <select id="getAll" resultMap="infors">
-        select information.* from information limit #{pageNo},#{pageSize}
+        select * from information limit #{pageNo},#{pageSize}
     </select>
 
     <select id="searchByName" resultMap="infors">
-        select information.* from information where name = #{name}
+        select information.* from information where `name` = #{name}
     </select>
 </mapper>
 
