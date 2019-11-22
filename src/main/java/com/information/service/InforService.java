@@ -4,12 +4,15 @@ import com.information.dao.InforDao;
 import com.information.dao.RelativeDao;
 import com.information.entity.Information;
 import com.information.entity.Relative;
+import com.information.vo.ListInfo;
+import com.information.vo.PageInfo;
 import com.information.vo.Result;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -143,7 +146,26 @@ public class InforService {
         int pageSize = 10;
         try {
             List<Information> list = idao.getAll(pageNo,pageSize);
-            re.setObj(list);
+            int totalNo = idao.getTotalNo();
+            int totalPageNo = totalNo/pageSize;
+            //新建分页类
+            PageInfo page = new PageInfo();
+            //设置当前页数
+            page.setPageNo(pageNo);
+            //设置总页数
+            page.setTotalNo((int) Math.ceil(totalPageNo));
+            List<ListInfo> listInfos = new ArrayList<>();
+            for (Information info:list) {
+                ListInfo listInfo = new ListInfo();
+                listInfo.setName(info.getName());
+                listInfo.setSex(info.getSex());
+                listInfo.setBirthday(info.getBirthday());
+                listInfo.setNativeplace(info.getNativeplace());
+                listInfo.setPost(info.getPost());
+                listInfos.add(listInfo);
+            }
+            page.setListInfo(listInfos);
+            re.setObj(page);
             re.setMessage("查找成功");
             re.setSuccess(true);
             logger.info("分页查找成功");
@@ -169,6 +191,7 @@ public class InforService {
         Result re = new Result();
         try {
             Information in = idao.getInformation(id);
+            logger.info(in);
             re.setObj(in);
             re.setSuccess(true);
             re.setMessage("查找成功");

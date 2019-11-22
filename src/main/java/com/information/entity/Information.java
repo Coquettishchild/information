@@ -38,7 +38,7 @@ public class Information {
     private Date party;
     //参加工作时间
     @JsonFormat(pattern = "yyyy.MM",locale = "zh",timezone = "GMY+8")
-    private Date joinTime;
+    private Date jointime;
     //职务
     private String post;
     //专长
