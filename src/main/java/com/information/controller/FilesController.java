@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.FileNotFoundException;
 import java.util.UUID;
 import java.io.File;
 /**
@@ -22,7 +24,16 @@ public class FilesController {
     @Autowired
     private FilesService service;
     //文件路径
-    private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"\\file\\";
+    private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"static\\files";
+    File filepath;
+    {
+        try {
+            filepath = ResourceUtils.getFile(PATH);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     @PostMapping
     public Result add(@RequestBody Files files){
         return service.add(files);
@@ -38,7 +49,7 @@ public class FilesController {
         Result re = new Result();
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
-            String filename = PATH+temp+file.getOriginalFilename();
+            String filename = filepath.getAbsolutePath()+"\\"+temp+file.getOriginalFilename();
             File dest = new File(filename);
             if(!dest.exists()){
                 dest.createNewFile();
@@ -47,7 +58,7 @@ public class FilesController {
             file.transferTo(dest);
             re.setSuccess(true);
             re.setMessage("上传成功");
-            re.setObj(filename);
+            re.setObj(temp+file.getOriginalFilename());
         }catch (Exception e){
             e.printStackTrace();
             re.setSuccess(false);
