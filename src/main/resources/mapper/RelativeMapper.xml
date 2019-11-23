@@ -3,12 +3,12 @@
 <mapper namespace="com.information.dao.RelativeDao">
     <!--批量插入关系 -->
     <insert id="insertList" parameterType="java.util.List">
-        insert into `relative`(rid,`name`,age,appellation,politicaloutlook,workunit,inforid)
+        insert into `relative`(rid,`rname`,age,appellation,politicaloutlook,workunit,inforid)
         values
         <foreach collection="list" item="item" index="index" separator=",">
             (
             #{item.rid},
-            #{item.name},
+            #{item.rname},
             #{item.age},
             #{item.appellation},
             #{item.politicaloutlook},

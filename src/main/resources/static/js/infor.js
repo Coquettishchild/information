@@ -52,7 +52,7 @@ function addpar() {
         "            <td class=\"appellation\">\n" +
         "                <input type=\"text\" class=\"form-control\" >\n" +
         "            </td>\n" +
-        "            <td class=\"name\">\n" +
+        "            <td class=\"rname\">\n" +
         "                <input type=\"text\" class=\"form-control\">\n" +
         "            </td>\n" +
         "            <td class=\"age\">\n" +
@@ -200,7 +200,7 @@ function upload() {
     info.filesList = fileslist;
     var list = new Array();
     var appellation = $('.appellation');
-    var name = $('.name');
+    var rname = $('.rname');
     var age = $('.age');
     var politicaloutlook = $('.politicaloutlook');
     var workunit = $('.workunit');
@@ -209,7 +209,7 @@ function upload() {
         if(flag!=null&&flag!=NaN&&flag!=""){
             var obj = new Object;
             obj.appellation = appellation.eq(i).children(1).val();
-            obj.name = name.eq(i).children(1).val();
+            obj.rname = rname.eq(i).children(1).val();
             obj.age = age.eq(i).children(1).val();
             obj.politicaloutlook = politicaloutlook.eq(i).children(1).val();
             obj.workunit = workunit.eq(i).children(1).val();
@@ -306,7 +306,7 @@ var detail = function(id){
                     if (i>=1&&i<=len){
                         var child = $(family[i]).children().children();
                         $(child[0]).val(data.obj.list[i-1].appellation);
-                        $(child[1]).val(data.obj.list[i-1].name);
+                        $(child[1]).val(data.obj.list[i-1].rname);
                         $(child[2]).val(data.obj.list[i-1].age);
                         $(child[3]).val(data.obj.list[i-1].politicaloutlook);
                         $(child[4]).val(data.obj.list[i-1].workunit);
