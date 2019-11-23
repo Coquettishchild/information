@@ -69,7 +69,8 @@ public class InforController {
         Result re = new Result();
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
-            String filename = filepath.getAbsolutePath()+"\\"+temp+file.getOriginalFilename();
+            String name  = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("\\")+1);
+            String filename = filepath.getAbsolutePath()+"\\"+temp+name;
             File dest = new File(filename);
             if(!dest.exists()){
                 dest.createNewFile();
@@ -78,7 +79,7 @@ public class InforController {
             file.transferTo(dest);
             re.setSuccess(true);
             re.setMessage("上传成功");
-            re.setObj(temp+file.getOriginalFilename());
+            re.setObj(temp+name);
         }catch (Exception e){
             e.printStackTrace();
             re.setSuccess(false);

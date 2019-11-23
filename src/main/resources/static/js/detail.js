@@ -113,7 +113,6 @@ var detail = function(id){
                 var lstr="";
                 var ostr="";
                 var flist = data.obj.filesList;
-                console.log(flist.length);
                 for(let i=0;i<flist.length;i++){
                     if(flist[i].fileflag==1){
                         if(xinflag==0){
@@ -243,7 +242,13 @@ var detail = function(id){
                 $('#tanhua').html(tstr);
                 $('#lianzheng').html(lstr);
                 $('#other').html(ostr);
+            }else{
+                alert(data.message);
+                window.location.href="../index.html";
             }
+        },
+        error: function (data) {
+            alert(data.message);
         }
     })
 };

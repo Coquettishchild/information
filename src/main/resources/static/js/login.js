@@ -15,30 +15,29 @@ $(document).keyup(function (event) {
         $("#login").trigger("click");
     }
 })
-/*
-*boss登录
-*/
+
 var login = function () {
     var userName = $("#userName").val();
     var password = $("#password").val();
-    var boss =  {"boss_userName":userName,"boss_password":password};
+    var user = new Object();
+    user.username = userName;
+    user.password = password;
     if(userName==null||userName==""){
         alert("请输入用户名！");
     }else if(password==null||password==""){
         alert("请输入密码！");
     }else{
         $.ajax({
-            url:"/data_miner/boss/login/",
-            dataType:"json",
+            url:"/information/user/login",
+            contentType : "application/json;charsetset=UTF-8",
             async:true,
-            data:boss,
+            data:JSON.stringify(user),
             type:"POST",
             success:function(req){
-                if(req.flag===true){
-                    window.location.href="/data_miner/bossPersonalCenter.html";
+                if(req.success===true){
+                    window.location.href="./secendhtml/list.html";
                 }else{
                     alert(req.message);
-                    myReload();
                 }
             },
             error:function(req){
@@ -46,4 +45,4 @@ var login = function () {
             }
         });
     }
-}
+};

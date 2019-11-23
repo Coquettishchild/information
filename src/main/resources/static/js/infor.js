@@ -179,6 +179,10 @@ function upload() {
     var info = new Object();
     //填写个人信息
     info.name = $('#name').val();
+    if(info.name==null||info.name==" "){
+        alert("请先填写信息");
+        return;
+    }
     info.sex = $('#sex').val();
     info.birthday = $('#birthday').val();
     info.heading = heading;
@@ -226,9 +230,14 @@ function upload() {
         success: function (req) {
             if (req.success) {
                alert("提交成功");
+                window.location.href="./list.html";
             } else {
-                alert("提交失败")
+                alert(req.message);
+                window.location.href="../index.html";
             }
+        },
+        error: function (data) {
+            alert(data.message);
         }
     })
 }

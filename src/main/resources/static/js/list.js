@@ -62,9 +62,12 @@ $(document.body).on('click', '.search', function () {
                     str += "</tbody>";
                     $('.list').html(str);
                     $('.page').remove();
-                } else {
-
+                }else{
+                    alert(data.message);
                 }
+            },
+            error: function (data) {
+                alert(data.message);
             }
         })
     }
@@ -96,13 +99,15 @@ var listInfo = function (pageNo) {
                 }
                 createList(data);
             } else {
+                alert(data.message);
+                window.location.href="../index.html";
                 localStorage.setItem('pageNo', 1);
                 localStorage.setItem('totalPage', data.obj.totalNo);
                 window.location.href = "./list.html";
             }
         },
-        error: function () {
-            alert("出现错误");
+        error: function (data) {
+            alert(data.message);
         }
     })
 }
@@ -307,9 +312,14 @@ var deleteInfo = function (id) {
             success: function (data) {
                 if (data.success) {
                     alert("删除成功");
+                    window.location.href="../secendhtml/list.html";
                 } else {
-                    alert("删除失败");
+                    alert(data.message);
+                    window.location.href="../index.html";
                 }
+            },
+            error: function (data) {
+                alert(data.message);
             }
         })
     }
