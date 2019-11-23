@@ -72,19 +72,33 @@ $(document.body).on('click','.search',function(){
 //当前页数
 var pageNo = localStorage.getItem("pageNo");
 
+
 var totalPage = localStorage.getItem("totalPage");
+
+
+// 生成人员列表
+
 var listInfo = function(pageNo){
 
     if (pageNo==null){
         pageNo=1;
+        localStorage.setItem("pageNo",1)
     }
     $.ajax({
         url: "/information/info/page/"+pageNo,
         type: "GET",
         success:function (data) {
             if (data.success) {
-                totalPage=data.obj.totalNo;
+                if (totalPage!=null){
+                    totalPage=data.obj.totalNo;
+                }else {
+                    localStorage.setItem('totalPage',data.obj.totalNo);
+                }
                 createList(data);
+            }else {
+                localStorage.setItem('pageNo',1);
+                localStorage.setItem('totalPage',data.obj.totalNo);
+                window.location.href="./list.html";
             }
         },
         error: function() {
@@ -146,13 +160,14 @@ function createList(data){
     }
     str += "</tbody>";
     $('.list').html(str);
-    fenye();
+    fenye(localStorage.getItem('pageNo'),localStorage.getItem('totalPage'));
 }
-function fenye(){
+
 //分页
-    var currentPage=Number(pageNo);
-    var pageNum=Number(totalPage);
-    //给每个button赋值（第一个默认为1）
+function fenye(pageNo,totalPage){
+        var currentPage=Number(pageNo);
+        var pageNum=Number(totalPage);
+        //给每个button赋值（第一个默认为1）
         $("#page_btn1").on("click",function () {
             localStorage.setItem('pageNo',1);
             window.location.href="./list.html";

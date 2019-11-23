@@ -159,33 +159,43 @@ public class InforService {
         Result re = new Result();
         int pageSize = 2;
         //因为MySQL limit初始行为 0
-        pageNo = (pageNo-1)*pageSize;
         try {
-            List<Information> list = idao.getAll(pageNo,pageSize);
             Double totalNo = idao.getTotalNo();
-            Double totalPageNo = Math.ceil(totalNo/pageSize);
-            //新建分页类
-            PageInfo page = new PageInfo();
-            //设置当前页数
-            page.setPageNo(pageNo+1);
-            //设置总页数
-            page.setTotalNo((int) Math.ceil(totalPageNo));
-            List<ListInfo> listInfos = new ArrayList<>();
-            for (Information info:list) {
-                ListInfo listInfo = new ListInfo();
-                listInfo.setId(info.getId());
-                listInfo.setName(info.getName());
-                listInfo.setSex(info.getSex());
-                listInfo.setBirthday(info.getBirthday());
-                listInfo.setNativeplace(info.getNativeplace());
-                listInfo.setPost(info.getPost());
-                listInfos.add(listInfo);
+            if (pageNo<totalNo){
+                pageNo = (pageNo-1)*pageSize;
+                List<Information> list = idao.getAll(pageNo,pageSize);
+                Double totalPageNo = Math.ceil(totalNo/pageSize);
+                //新建分页类
+                PageInfo page = new PageInfo();
+                //设置当前页数
+                page.setPageNo(pageNo+1);
+                //设置总页数
+                page.setTotalNo((int) Math.ceil(totalPageNo));
+                List<ListInfo> listInfos = new ArrayList<>();
+                for (Information info:list) {
+                    ListInfo listInfo = new ListInfo();
+                    listInfo.setId(info.getId());
+                    listInfo.setName(info.getName());
+                    listInfo.setSex(info.getSex());
+                    listInfo.setBirthday(info.getBirthday());
+                    listInfo.setNativeplace(info.getNativeplace());
+                    listInfo.setPost(info.getPost());
+                    listInfos.add(listInfo);
+                }
+                page.setListInfo(listInfos);
+                re.setObj(page);
+                re.setMessage("查找成功");
+                re.setSuccess(true);
+                logger.info("分页查找成功");
+            }else {
+                Double totalPageNo = Math.ceil(totalNo/pageSize);
+                PageInfo page = new PageInfo();
+                page.setTotalNo((int) Math.ceil(totalPageNo));
+                re.setMessage("查找失败，当前页数大于总页数");
+                re.setSuccess(false);
+                re.setObj(page);
+                logger.info("当前页数大于总页数");
             }
-            page.setListInfo(listInfos);
-            re.setObj(page);
-            re.setMessage("查找成功");
-            re.setSuccess(true);
-            logger.info("分页查找成功");
         } catch (Exception e) {
             re.setMessage("查找失败");
             re.setSuccess(false);
