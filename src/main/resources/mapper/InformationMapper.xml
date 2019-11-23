@@ -24,7 +24,7 @@
         <result column="rewards" property="rewards"/>
         <collection property="list" ofType="com.information.entity.Relative">
             <id column="rid" property="rid"/>
-            <result column="name" property="name"/>
+            <result column="rname" property="rname"/>
             <result column="age" property="age"/>
             <result column="appellation" property="appellation"/>
             <result column="politicaloutlook" property="politicaloutlook"/>

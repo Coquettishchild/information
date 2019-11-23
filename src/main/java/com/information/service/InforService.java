@@ -205,7 +205,8 @@ public class InforService {
         Result re = new Result();
         try {
             Information in = idao.getInformation(id);
-            logger.info(in);
+            List<Files> list = fdao.getlist(id);
+            in.setFilesList(list);
             re.setObj(in);
             re.setSuccess(true);
             re.setMessage("查找成功");
