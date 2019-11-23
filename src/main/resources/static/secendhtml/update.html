@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>干部廉政档案</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/infor.css">
+</head>
+<body>
+<div id="table">
+    <table class="table  table-hover table-bordered">
+        <span id="tittle">干部廉政档案</span>
+        <tr>
+            <td>
+                姓名
+            </td>
+            <td>
+                <input type="text" name="" id="name" class="form-control">
+            </td>
+            <td>
+                性别
+            </td>
+            <td>
+                <input type="text" name="" id="sex" class="form-control">
+            </td>
+            <td>
+                出生年月（岁）
+            </td>
+            <td>
+                <input type="text" name="" id="birthday" class="form-control">
+            </td>
+            <td rowspan="4">
+                <form action="" id="head">
+                    <input type="file"  onchange="change()" id="headimg"  class="form-control" multiple="multiple">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                民族
+            </td>
+            <td>
+                <input type="text" name="" id="nation" class="form-control">
+            </td>
+            <td>
+                籍贯
+            </td>
+            <td>
+                <input type="text" name="" id="nativeplace" class="form-control">
+            </td>
+            <td>
+                出生地
+            </td>
+            <td>
+                <input type="text" name="" id="birthplace" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                入党时间
+            </td>
+            <td>
+                <input type="date" name="" id="party" class="form-control">
+            </td>
+            <td>
+                参加工作时间
+            </td>
+            <td>
+                <input type="date" name="" id="jointime" class="form-control">
+            </td>
+            <td>
+                健康状况
+            </td>
+            <td>
+                <input type="text" name="" id="health" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                专业技术职务
+            </td>
+            <td colspan="2">
+                <input type="text" name="" id="post" class="form-control">
+            </td>
+            <td>
+                熟悉专业有何专长
+            </td>
+            <td colspan="2">
+                <input type="text" name="" id="major" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="line-height: 70px !important;">学位学历</td>
+            <td>全日制教育</td>
+            <td colspan="2">
+                <input type="text" name="" id="fulltimeschooling" class="form-control">
+            </td>
+            <td>毕业院校系及专业</td>
+            <td colspan="2">
+                <input type="text" name="" id="fulltimesgraduated" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>在职教育</td>
+            <td colspan="2">
+                <input type="text" name="" id="inserviceeducation" class="form-control">
+            </td>
+            <td>毕业院校及专业</td>
+            <td colspan="2">
+                <input type="text" name="" id="inservicegraduated" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">现任职务</td>
+            <td colspan="5">
+                <input type="text" class="form-control" id="position">
+            </td>
+        </tr>
+        <tr rowspan="6">
+            <td style="line-height: 160px !important;">简 <br>历</td>
+            <td colspan="6" id="resume" style="text-align: left !important;">
+
+            </td>
+        </tr>
+        <tr>
+            <td>奖惩情况</td>
+            <td colspan="6">
+                <textarea class="form-control" rows="2" id="rewards"></textarea>
+            </td>
+        </tr>
+    </table>
+    <table class="table table-hover table-bordered family" id="par">
+        <tr>
+            <td rowspan="100" style="line-height: 160px !important;">家庭主要成员及重要社会关系</td>
+            <td>
+                称谓
+            </td>
+            <td>
+                姓名
+            </td>
+            <td>
+                年龄
+            </td>
+            <td>
+                政治面貌
+            </td>
+            <td colspan="3">
+                工作单位及职务
+            </td>
+        </tr>
+        <tr >
+            <td class="appellation">
+                <input type="text" class="form-control" >
+            </td>
+            <td class="rname">
+                <input type="text" class="form-control">
+            </td>
+            <td class="age">
+                <input type="text" class="form-control">
+            </td>
+            <td class="politicaloutlook">
+                <input type="text" class="form-control">
+            </td>
+            <td colspan="2" class="workunit">
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+        <tr >
+            <td class="appellation">
+                <input type="text" class="form-control" >
+            </td>
+            <td class="rname">
+                <input type="text" class="form-control">
+            </td>
+            <td class="age">
+                <input type="text" class="form-control">
+            </td>
+            <td class="politicaloutlook">
+                <input type="text" class="form-control">
+            </td>
+            <td colspan="2" class="workunit">
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" onclick="addpar()">添加</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered" id="xin">
+        <tr>
+            <td rowspan="100">信访及处理情况</td>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                    <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(1,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(1,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" onclick="addxin()">添加</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered" id="qingkuang">
+        <tr>
+            <td rowspan="100">因不实报告个人事项收到处理情况</td>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(2,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(2,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" onclick="addqingkuang()">添加</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered" id="tanhua">
+        <tr>
+            <td rowspan="100">谈话函询初核等有关材料</td>
+            <td colspan="2">
+                <input type="file" name="" class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(3,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(3,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" onclick="addtanhua()">添加</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered" id="lianzheng">
+        <tr>
+            <td rowspan="100">党风廉政回复材料</td>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(4,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name=""  class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明"  class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(4,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" onclick="addlianzheng()">添加</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered" id="other">
+        <tr>
+            <td rowspan="100">其他材料</td>
+            <td colspan="2">
+                <input type="file" name="" id="" class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明" id="" class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(5,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name="" id="" class="form-control">
+            </td>
+            <td colspan="2">
+                <input type="text" name="" placeholder="文件说明" id="" class="form-control">
+            </td>
+            <td>
+                <button class="btn btn-primary" onclick="uploadfile(5,this)">上传</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="7">
+                <button class="btn btn-primary" onclick="addother()">添加</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table  table-hover table-bordered">
+        <tr>
+            <td colspan="3.5">
+                <button class="btn btn-success" onclick="upload()">上传信息</button>
+                <button class="btn btn-warning" onclick="toList()">返回列表</button>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/wangEditor.min.js"></script>
+    <script type="text/javascript" src="../js/update.js"></script>
+    <script type="text/javascript" src="../js/infor.js"></script>
+</div>
+</body>
+</html>
