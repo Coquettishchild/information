@@ -1,6 +1,7 @@
 package com.information.controller;
 
 import com.information.dao.FilesDao;
+import com.information.dao.RelativeDao;
 import com.information.entity.Files;
 import com.information.service.FilesService;
 import com.information.vo.Result;
@@ -9,6 +10,8 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.io.FileNotFoundException;
 import java.util.UUID;
 import java.io.File;
@@ -23,6 +26,8 @@ import java.io.File;
 public class FilesController {
     @Autowired
     private FilesService service;
+
+
     //文件路径
     private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"static\\files";
     File filepath;
@@ -67,4 +72,5 @@ public class FilesController {
         }
         return re;
     }
+
 }

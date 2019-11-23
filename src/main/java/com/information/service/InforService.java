@@ -67,9 +67,8 @@ public class InforService {
             if(flist!=null && flist.size()>0){
                 for (Files files: flist) {
                     files.setInid(id);
-                    fdao.insert(files);
                 }
-//                fdao.insertList(flist);
+                fdao.insertList(flist);
             }
             re.setMessage("插入成功");
             re.setSuccess(true);

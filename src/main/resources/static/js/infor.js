@@ -182,11 +182,11 @@ function upload() {
     info.sex = $('#sex').val();
     info.birthday = $('#birthday').val();
     info.heading = heading;
-    info.nation = $('#nantion').val();
+    info.nation = $('#nation').val();
     info.nativeplace = $('#nativeplace').val();
     info.birthplace = $('#birthplace').val();
     info.party = $('#party').val();
-    info.jointime = $('#joinTime').val();
+    info.jointime = $('#jointime').val();
     info.health = $('#health').val();
     info.post = $('#post').val();
     info.major=$('#major').val();
