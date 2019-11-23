@@ -17,16 +17,15 @@
     <legend>档案列表</legend>
     <br>
     <div id="list">
-        <table class="table-striped table">
+        <table class="table-striped table list">
             <tr>
                 <td colspan="4" style="text-align: left">
-                    <button class="btn btn-primary">&nbsp;+添加&nbsp;</button>
+                    <button class="btn btn-primary add">&nbsp;+添加&nbsp;</button>
                 </td>
                 <td  style="text-align: left" colspan="2">
                     <input type="text" class="form-control" id="search">
-                    <button class="btn btn-success" id="btnsearch">&nbsp;查找&nbsp;</button>
+                    <button class="btn btn-success search" id="btnsearch">&nbsp;查找&nbsp;</button>
                 </td>
-
             </tr>
             <tr>
                 <th>
@@ -55,9 +54,9 @@
                 <td>学生</td>
                 <td>保定</td>
                 <td >
-                    <button class="btn btn-primary" onclick="">查看</button>
-                    <button class="btn btn-danger" onclick="delete(id)">删除</button>
-                    <button class="btn btn-info edit"`>修改</button>
+                    <button class="btn btn-primary" onclick="infor(1)">查看</button>
+                    <button class="btn btn-danger" onclick="deleteInfo(1)">删除</button>
+                    <button class="btn btn-info" onclick="editInfo(1)">修改</button>
                 </td>
             </tr>
             <tr>

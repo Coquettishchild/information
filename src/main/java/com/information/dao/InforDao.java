@@ -20,4 +20,6 @@ public interface InforDao extends BaseMapper<Information> {
      List<Information> getAll(@Param("pageNo") int pageNo,@Param("pageSize") int pageSize)throws Exception;
 
      List<Information> searchByName(String name)throws Exception;
+
+     int getTotalNo()throws Exception;
 }

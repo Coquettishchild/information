@@ -14,44 +14,44 @@
             <td>
                 姓名
             </td>
-            <td>
+            <td class="name">
                 张海松
             </td>
             <td>
                 性别
             </td>
-            <td>
+            <td class="sex">
                男
             </td>
             <td>
                 出生年月
                 (岁)
             </td>
-            <td>
+            <td class="birthday">
                 1961.11
                 (57岁)
             </td>
             <td rowspan="4">
-                <img src="../files/图片1.png" alt="">
+                <img src="../images/图片1.png" alt="" class="heading">
             </td>
         </tr>
         <tr>
             <td>
                 民族
             </td>
-            <td>
+            <td class="nation">
                 汉
             </td>
             <td>
                 籍贯
             </td>
-            <td>
+            <td class="nativeplace">
                 衡水
             </td>
             <td>
                 出生地
             </td>
-            <td>
+            <td class="birthplace">
                 衡水
             </td>
         </tr>
@@ -59,19 +59,19 @@
             <td>
                 入党时间
             </td>
-            <td>
+            <td class="party">
                 1995.10
             </td>
             <td>
                 参加工作时间
             </td>
-            <td>
+            <td class="jointime">
                 1982.12
             </td>
             <td>
                 健康状况
             </td>
-            <td>
+            <td class="health">
                 健康
             </td>
         </tr>
@@ -79,47 +79,47 @@
             <td>
                 专业技术职务
             </td>
-            <td colspan="2">
+            <td colspan="2" class="post">
                 教授
             </td>
             <td>
                 熟悉专业有何专长
             </td>
-            <td colspan="2">
+            <td colspan="2" class="major">
 
             </td>
         </tr>
         <tr>
             <td rowspan="2" style="line-height: 70px !important;">学位学历</td>
             <td>全日制教育</td>
-            <td colspan="2">
+            <td colspan="2" class="fulltimeschooling">
                 大学 医学学士
             </td>
             <td>毕业院校系及专业</td>
-            <td colspan="2">
+            <td colspan="2" class="fulltimesgraduated">
                 中山医学院医学系医学专业
             </td>
         </tr>
         <tr>
             <td>在职教育</td>
-            <td colspan="2">
+            <td colspan="2" class="inserviceeducation">
                 研究生
                 理学博士
             </td>
             <td>毕业院校及专业</td>
-            <td colspan="2">
+            <td colspan="2" class="inservicegraduated">
                 河北大学化学与环境科学学院高分子化学与物理专业
             </td>
         </tr>
         <tr>
             <td colspan="2">现任职务</td>
-            <td colspan="5">
+            <td colspan="5" class="position">
                 河北大学附属医院院长、党委副书记；河北大学医学院院长
             </td>
         </tr>
         <tr rowspan="6">
             <td style="line-height: 160px !important;">简 <br>历</td>
-            <td colspan="6" id="jianli" style="text-align: left !important;">
+            <td colspan="6" id="jianli" style="text-align: left !important;" class="jianli">
                 1978.03--1982.12  中山医学院医学系医学专业学习 <br>
                 1982.12--1992.03  河北省职工医学院附属医院内科医生 <br>
                 1992.03--1995.07  河北省职工医学院附属医院肾脏内科专业副主任 <br>
@@ -137,15 +137,15 @@
         </tr>
         <tr>
             <td>奖惩情况</td>
-            <td colspan="6">
+            <td colspan="6" class="rewards">
                 2013年荣获为保定市劳动模范称号 <br>
                 2014年荣获河北省先进工作者称号
             </td>
         </tr>
     </table>
-    <table class="table  table-hover table-bordered" id="par">
+    <table class="table table-hover table-bordered relative" id="par">
         <tr>
-            <td  rowspan="100" style="line-height: 160px !important;">家庭主要成员及重要社会关系</td>
+            <td  rowspan="100">家庭主要成员及重要社会关系</td>
             <td >
                 称谓
             </td>
@@ -178,56 +178,6 @@
             </td>
             <td colspan="2">
                 河北长天药业经贸公司职工（已退休）
-            </td>
-        </tr>
-        <tr>
-            <td>
-                儿子
-            </td>
-            <td>
-                张云霄
-            </td>
-            <td>
-                25
-            </td>
-            <td>
-                群众
-            </td>
-            <td colspan="2">
-                中山大学临床检验专业学生
-            </td>
-        </tr>
-        <tr>
-            <td>
-                父亲
-            </td>
-            <td>
-                张智友
-            </td>
-            <td>
-            </td>
-            <td>
-                中共
-                党员
-            </td>
-            <td colspan="2">
-                河北南皮县供销社职工（已去世）
-            </td>
-        </tr>
-        <tr>
-            <td>
-                母亲
-            </td>
-            <td>
-                于淑贞
-            </td>
-            <td>
-            </td>
-            <td>
-                群众
-            </td>
-            <td colspan="2">
-                河北南皮县务农（已去世）
             </td>
         </tr>
     </table>
@@ -321,10 +271,13 @@
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="3.5">
-                <button class="btn btn-success" onclick="">修改信息</button>
+                <button class="btn btn-success" onclick="updateInfo()">修改信息</button>
                 <button class="btn btn-warning" onclick="javascript:location.href='./list.html'">返回列表</button>
             </td>
         </tr>
     </table>
+</div>
 </body>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/detail.js"></script>
 </html>

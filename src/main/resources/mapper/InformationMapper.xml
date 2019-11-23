@@ -62,6 +62,10 @@
         select * from information limit #{pageNo},#{pageSize}
     </select>
 
+    <select id="getTotalNo">
+        select count(*) from information
+    </select>
+
     <select id="searchByName" resultMap="infors">
         select information.* from information where `name` = #{name}
     </select>
