@@ -13,7 +13,7 @@ import lombok.Data;
 @TableName("files")
 public class Files {
     //id
-    private long id;
+    private long fid;
     //文件
     private String filepath;
     //文件描述

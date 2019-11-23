@@ -14,5 +14,5 @@ import java.util.List;
  */
 @Mapper
 public interface FilesDao extends BaseMapper<Files> {
-    void insertList(List<Files> list)throws Exception;
+    void insertList(@Param("list") List<Files> list)throws Exception;
 }

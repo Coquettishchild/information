@@ -50,7 +50,6 @@ public class InforService {
         try {
             List<Relative> list = infor.getList();
             List<Files> flist  = infor.getFilesList();
-            System.out.println(flist);
             String id = (""+UUID.randomUUID()).replaceAll("-","");
             infor.setId(id);
             infor.setList(null);
@@ -65,8 +64,9 @@ public class InforService {
             if(flist!=null && flist.size()>0){
                 for (Files files: flist) {
                     files.setInid(id);
+                    fdao.insert(files);
                 }
-                fdao.insertList(flist);
+//                fdao.insertList(flist);
             }
             re.setMessage("插入成功");
             re.setSuccess(true);
