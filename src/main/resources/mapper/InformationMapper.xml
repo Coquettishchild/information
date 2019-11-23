@@ -11,7 +11,7 @@
         <result column="birthplace" property="birthplace"/>
         <result column="health" property="health"/>
         <result column="party" property="party"/>
-        <result column="joinTime" property="joinTime"/>
+        <result column="jointime" property="jointime"/>
         <result column="heading" property="heading"/>
         <result column="post" property="post"/>
         <result column="major" property="major"/>
@@ -42,7 +42,7 @@
         <result column="birthplace" property="birthplace"/>
         <result column="health" property="health"/>
         <result column="party" property="party"/>
-        <result column="joinTime" property="joinTime"/>
+        <result column="jointime" property="jointime"/>
         <result column="heading" property="heading"/>
         <result column="post" property="post"/>
         <result column="major" property="major"/>
