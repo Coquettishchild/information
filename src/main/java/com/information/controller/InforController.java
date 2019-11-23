@@ -51,8 +51,6 @@ public class InforController {
 
     @GetMapping("page/{page}")
     public Result listInfo(@PathVariable("page") int pageNo){
-        //因为MySQL limit初始行为 0
-        pageNo--;
         return service.getAll(pageNo);
     }
 

@@ -158,19 +158,22 @@ public class InforService {
     public Result getAll(int pageNo){
         Result re = new Result();
         int pageSize = 10;
+        //因为MySQL limit初始行为 0
+        pageNo = (pageNo-1)*pageSize;
         try {
             List<Information> list = idao.getAll(pageNo,pageSize);
-            int totalNo = idao.getTotalNo();
-            int totalPageNo = totalNo/pageSize;
+            Double totalNo = idao.getTotalNo();
+            Double totalPageNo = Math.ceil(totalNo/pageSize);
             //新建分页类
             PageInfo page = new PageInfo();
             //设置当前页数
-            page.setPageNo(pageNo);
+            page.setPageNo(pageNo+1);
             //设置总页数
             page.setTotalNo((int) Math.ceil(totalPageNo));
             List<ListInfo> listInfos = new ArrayList<>();
             for (Information info:list) {
                 ListInfo listInfo = new ListInfo();
+                listInfo.setId(info.getId());
                 listInfo.setName(info.getName());
                 listInfo.setSex(info.getSex());
                 listInfo.setBirthday(info.getBirthday());

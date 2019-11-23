@@ -12,6 +12,8 @@ import java.util.Date;
  */
 @Data
 public class ListInfo {
+    //id
+    private String id;
     //列表姓名
     private String name;
     //性别

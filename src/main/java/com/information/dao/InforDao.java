@@ -21,5 +21,5 @@ public interface InforDao extends BaseMapper<Information> {
 
      List<Information> searchByName(String name)throws Exception;
 
-     int getTotalNo()throws Exception;
+     Double getTotalNo()throws Exception;
 }
