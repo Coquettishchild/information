@@ -157,7 +157,7 @@ public class InforService {
      */
     public Result getAll(int pageNo){
         Result re = new Result();
-        int pageSize = 10;
+        int pageSize = 2;
         //因为MySQL limit初始行为 0
         pageNo = (pageNo-1)*pageSize;
         try {
