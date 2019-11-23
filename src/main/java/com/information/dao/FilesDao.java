@@ -17,4 +17,8 @@ public interface FilesDao extends BaseMapper<Files> {
     void insertList(@Param("list") List<Files> list)throws Exception;
 
     List<Files> getlist(String inid)throws Exception;
+
+    void deletefile(int id)throws Exception;
+
+    long insertfile(@Param("files") Files files)throws Exception;
 }

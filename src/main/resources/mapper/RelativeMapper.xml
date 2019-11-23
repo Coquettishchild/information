@@ -31,4 +31,8 @@
             )
         </foreach>
     </insert>
+
+    <delete id="deleterealtive">
+        delete from relative where rid =#{id}
+    </delete>
 </mapper>

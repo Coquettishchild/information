@@ -27,7 +27,6 @@ public class LoginInterceptor implements HandlerInterceptor {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
         if(user==null){
-            System.out.println(request.getRequestURL().toString());
             re.setSuccess(false);
             re.setMessage("请先登录");
             re.setObj(null);

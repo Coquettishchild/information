@@ -44,8 +44,8 @@ public class FilesController {
         return service.add(files);
     }
 
-    @DeleteMapping
-    public Result delete(int id){
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable int id){
         return service.delete(id);
     }
 
@@ -54,7 +54,8 @@ public class FilesController {
         Result re = new Result();
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
-            String filename = filepath.getAbsolutePath()+"\\"+temp+file.getOriginalFilename();
+            String fname = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("\\")+1);
+            String filename = filepath.getAbsolutePath()+"\\"+temp+fname;
             File dest = new File(filename);
             if(!dest.exists()){
                 dest.createNewFile();
@@ -63,7 +64,7 @@ public class FilesController {
             file.transferTo(dest);
             re.setSuccess(true);
             re.setMessage("上传成功");
-            re.setObj(temp+file.getOriginalFilename());
+            re.setObj(temp+fname);
         }catch (Exception e){
             e.printStackTrace();
             re.setSuccess(false);

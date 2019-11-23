@@ -19,8 +19,9 @@ public class RelativeController {
     @Autowired
     private RelativeService service;
 
-    @DeleteMapping
-    public Result delete(@RequestParam("id") int id){
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable("id") int id){
+        System.out.println(id);
         return service.delete(id);
     }
 

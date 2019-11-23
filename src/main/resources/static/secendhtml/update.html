@@ -130,196 +130,84 @@
         </tr>
     </table>
     <table class="table table-hover table-bordered family" id="par">
-        <tr>
-            <td rowspan="100" style="line-height: 160px !important;">家庭主要成员及重要社会关系</td>
-            <td>
-                称谓
-            </td>
-            <td>
-                姓名
-            </td>
-            <td>
-                年龄
-            </td>
-            <td>
-                政治面貌
-            </td>
-            <td colspan="3">
-                工作单位及职务
-            </td>
-        </tr>
-        <tr >
-            <td class="appellation">
-                <input type="text" class="form-control" >
-            </td>
-            <td class="rname">
-                <input type="text" class="form-control">
-            </td>
-            <td class="age">
-                <input type="text" class="form-control">
-            </td>
-            <td class="politicaloutlook">
-                <input type="text" class="form-control">
-            </td>
-            <td colspan="2" class="workunit">
-                <input type="text" class="form-control">
-            </td>
-            <td>
-                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
-            </td>
-        </tr>
-        <tr >
-            <td class="appellation">
-                <input type="text" class="form-control" >
-            </td>
-            <td class="rname">
-                <input type="text" class="form-control">
-            </td>
-            <td class="age">
-                <input type="text" class="form-control">
-            </td>
-            <td class="politicaloutlook">
-                <input type="text" class="form-control">
-            </td>
-            <td colspan="2" class="workunit">
-                <input type="text" class="form-control">
-            </td>
-            <td>
-                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>
-            </td>
-        </tr>
+
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="7">
-                <button class="btn btn-primary" onclick="addpar()">添加</button>
+                <button class="btn btn-primary" onclick="addrelative()">添加</button>
             </td>
         </tr>
     </table>
     <table class="table  table-hover table-bordered" id="xin">
         <tr>
             <td rowspan="100">信访及处理情况</td>
-<!--            <td colspan="2">-->
-<!--                <input type="file" name=""  class="form-control">-->
-<!--            </td>-->
-<!--            <td colspan="2">-->
-<!--                    <input type="text" name="" placeholder="文件说明"  class="form-control">-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-primary" onclick="uploadfile(1,this)">上传</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>-->
-<!--            </td>-->
+
         </tr>
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="7">
-                <button class="btn btn-primary" onclick="addxin()">添加</button>
+                <button class="btn btn-primary" onclick="addfile(1,'#xin')">添加</button>
             </td>
         </tr>
     </table>
     <table class="table  table-hover table-bordered" id="qingkuang">
         <tr>
             <td rowspan="100">因不实报告个人事项收到处理情况</td>
-<!--            <td colspan="2">-->
-<!--                <input type="file" name=""  class="form-control">-->
-<!--            </td>-->
-<!--            <td colspan="2">-->
-<!--                <input type="text" name="" placeholder="文件说明"  class="form-control">-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-primary" onclick="uploadfile(2,this)">上传</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>-->
-<!--            </td>-->
+
         </tr>
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="7">
-                <button class="btn btn-primary" onclick="addqingkuang()">添加</button>
+                <button class="btn btn-primary" onclick="addfile(2,'#qingkuang')">添加</button>
             </td>
         </tr>
     </table>
     <table class="table  table-hover table-bordered" id="tanhua">
         <tr>
             <td rowspan="100">谈话函询初核等有关材料</td>
-<!--            <td colspan="2">-->
-<!--                <input type="file" name="" class="form-control">-->
-<!--            </td>-->
-<!--            <td colspan="2">-->
-<!--                <input type="text" name="" placeholder="文件说明"  class="form-control">-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-primary" onclick="uploadfile(3,this)">上传</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>-->
-<!--            </td>-->
+
         </tr>
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="7">
-                <button class="btn btn-primary" onclick="addtanhua()">添加</button>
+                <button class="btn btn-primary" onclick="addfile(3,'#tanhua')">添加</button>
             </td>
         </tr>
     </table>
     <table class="table  table-hover table-bordered" id="lianzheng">
         <tr>
             <td rowspan="100">党风廉政回复材料</td>
-<!--            <td colspan="2">-->
-<!--                <input type="file" name=""  class="form-control">-->
-<!--            </td>-->
-<!--            <td colspan="2">-->
-<!--                <input type="text" name="" placeholder="文件说明"  class="form-control">-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-primary" onclick="uploadfile(4,this)">上传</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>-->
-<!--            </td>-->
+
         </tr>
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="7">
-                <button class="btn btn-primary" onclick="addlianzheng()">添加</button>
+                <button class="btn btn-primary" onclick="addfile(4,'#lianzheng')">添加</button>
             </td>
         </tr>
     </table>
     <table class="table  table-hover table-bordered" id="other">
         <tr>
             <td rowspan="100">其他材料</td>
-<!--            <td colspan="2">-->
-<!--                <input type="file" name="" id="" class="form-control">-->
-<!--            </td>-->
-<!--            <td colspan="2">-->
-<!--                <input type="text" name="" placeholder="文件说明" id="" class="form-control">-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-primary" onclick="uploadfile(5,this)">上传</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button class="btn btn-danger" onclick="deletexin(this)">删除</button>-->
-<!--            </td>-->
+
         </tr>
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="7">
-                <button class="btn btn-primary" onclick="addother()">添加</button>
+                <button class="btn btn-primary" onclick="addfile(5,'#other')">添加</button>
             </td>
         </tr>
     </table>
     <table class="table  table-hover table-bordered">
         <tr>
             <td colspan="3.5">
-                <button class="btn btn-success" onclick="upload()">上传信息</button>
+                <button class="btn btn-success" onclick="updateInfo()">提交更新</button>
                 <button class="btn btn-warning" onclick="toList()">返回列表</button>
             </td>
         </tr>

@@ -20,7 +20,7 @@ public class RelativeService {
     public Result delete(int id){
         Result re = new Result();
         try{
-            dao.deleteById(id);
+            dao.deleterealtive(id);
             re.setObj(null);
             re.setMessage("删除成功");
             re.setSuccess(true);

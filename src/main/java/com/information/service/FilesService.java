@@ -23,12 +23,7 @@ public class FilesService {
     public Result delete(int id){
         Result re = new Result();
         try{
-            Files temp = dao.selectById(id);
-            File file = new File(temp.getFilepath());
-            if(file.exists()){
-                file.delete();
-            }
-            dao.deleteById(id);
+            dao.deletefile(id);
             re.setSuccess(true);
             re.setMessage("删除成功");
             re.setObj(null);
@@ -44,10 +39,10 @@ public class FilesService {
     public Result add(Files file){
         Result re = new Result();
         try{
-            dao.insert(file);
+             dao.insertfile(file);
             re.setSuccess(true);
             re.setMessage("添加成功");
-            re.setObj(null);
+            re.setObj(file.getFid());
         }catch (Exception e){
             e.printStackTrace();
             re.setObj(null);

@@ -60,8 +60,8 @@ public class InforController {
     }
 
     @PatchMapping
-    public Result updateInfo(@RequestBody Information infor) {
-        return service.updateInfor(infor);
+    public Result updateInfo(@RequestBody Information obj) {
+        return service.updateInfor(obj);
     }
 
     @PostMapping("/uploadhead")

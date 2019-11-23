@@ -103,7 +103,7 @@ public class InforService {
             if (list!=null){
                 if (!list.isEmpty()){
                     for(int i = 0 ;i<list.size();i++){
-                        rdao.updateById(list.get(i));
+                        rdao.insert(list.get(i));
                     }
                 }
             }
