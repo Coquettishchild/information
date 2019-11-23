@@ -62,7 +62,7 @@
         select * from information limit #{pageNo},#{pageSize}
     </select>
 
-    <select id="getTotalNo">
+    <select id="getTotalNo" resultType="java.lang.Double">
         select count(*) from information
     </select>
 
