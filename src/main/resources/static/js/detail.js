@@ -254,5 +254,5 @@ var detail = function(id){
 };
 //跳转修改页面
 function updateInfo() {
-    window.location.href="../secendhtml/infor.html?id="+id;
+    window.location.href="../secendhtml/update.html?id="+id;
 }
