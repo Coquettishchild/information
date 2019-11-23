@@ -35,13 +35,14 @@ var detail = function(id){
                 $('.jointime').text(data.obj.jointime);
                 $('.health').text(data.obj.health);
                 $('.post').text(data.obj.post);
+                $('.heading').html("<img src='../images/"+data.obj.heading+"' >");
                 $('.major').text(data.obj.major);
                 $('.fulltimeschooling').text(data.obj.fulltimeschooling);
                 $('.fulltimesgraduated').text(data.obj.fulltimesgraduated);
                 $('.inserviceeducation').text(data.obj.inserviceeducation);
                 $('.inservicegraduated').text(data.obj.inservicegraduated);
                 $('.position').text(data.obj.position);
-                $('.jianli').text(data.obj.resume);
+                $('.jianli').html(data.obj.resume);
                 $('.rewards').text(data.obj.rewards);
                 //亲属关系
                 $('.relative').html('');
@@ -72,7 +73,7 @@ var detail = function(id){
                         "                "+list[i].appellation+"\n" +
                         "            </td>\n" +
                         "            <td>\n" +
-                        "                "+list[i].name+"\n" +
+                        "                "+list[i].rname+"\n" +
                         "            </td>\n" +
                         "            <td>\n" +
                         "                "+list[i].age+"\n" +
@@ -87,10 +88,151 @@ var detail = function(id){
                 }
                 str += "</tbody>";
                 $('.relative').html(str);
+                var xinflag =0;
+                var qingflag = 0;
+                var tanflag = 0;
+                var lianzheng = 0;
+                var qita  = 0;
+                var xstr = "";
+                var qstr="";
+                var tstr="";
+                var lstr="";
+                var ostr="";
+                var flist = data.obj.filesList;
+                console.log(flist.length);
+                for(let i=0;i<flist.length;i++){
+                    if(flist[i].fileflag==1){
+                        if(xinflag==0){
+                            xstr+=" <tr>\n" +
+                                "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">信访及处理情况</td>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            xinflag++;
+                        }else{
+                            xstr+=" <tr>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            xinflag++;
+                        }
+                    }else if(flist[i].fileflag==2){
+                        if(qingflag==0){
+                            qstr+="<tr>\n" +
+                                "            <td  rowspan=\"100\" style=\"line-height: 70px !important; width: 250px\">因不实报告个人事项收到处理情况</td>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            qingflag++;
+                        }else{
+                            qstr+="<tr>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            qingflag++;
+                        }
+                    }else if(flist[i].fileflag==3){
+                        if(tanflag==0){
+                            tstr+=" <tr>\n" +
+                                "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">谈话函询初核等有关材料</td>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            tanflag++;
+                        }else{
+                            tstr+="<tr>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd' >\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            tanflag++;
+                        }
+                    }else if(flist[i].fileflag==4){
+                        if(lianzheng == 0){
+                            lstr+=" <tr>\n" +
+                                "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">党风廉政回复材料</td>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            lianzheng++;
+                        }else{
+                            lstr+="<tr>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            lianzheng++;
+                        }
+                    }else if(flist[i].fileflag==5){
+                        if(qita==0){
+                            ostr+="<tr>\n" +
+                                "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">其他材料</td>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            qita++;
+                        }else{
+                            ostr+="<tr>\n" +
+                                "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                            qita++;
+                        }
+                    }
+
+                }
+               if(xinflag==0){
+                   xstr+=" <tr>\n" +
+                       "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">信访及处理情况</td>\n" +
+                       "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                       "            </td>\n" +
+                       "        </tr>";
+               }
+               if(qingflag==0){
+                   qstr+="<tr>\n" +
+                       "            <td  rowspan=\"100\" style=\"line-height: 70px !important; width: 250px\">因不实报告个人事项收到处理情况</td>\n" +
+                       "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                       "            </td>\n" +
+                       "        </tr>";
+               }
+               if(tanflag==0){
+                   tstr+=" <tr>\n" +
+                       "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">谈话函询初核等有关材料</td>\n" +
+                       "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                       "            </td>\n" +
+                       "        </tr>";
+               }
+               if(lianzheng==0){
+                   lstr+=" <tr>\n" +
+                       "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">党风廉政回复材料</td>\n" +
+                       "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                       "            </td>\n" +
+                       "        </tr>";
+               }
+               if(qita==0){
+                   ostr+="<tr>\n" +
+                       "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">其他材料</td>\n" +
+                       "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
+                       "            </td>\n" +
+                       "        </tr>";
+               }
+                $('#xin').html(xstr);
+                $('#qingkuang').html(qstr);
+                $('#tanhua').html(tstr);
+                $('#lianzheng').html(lstr);
+                $('#other').html(ostr);
             }
         }
     })
-}
+};
 //跳转修改页面
 function updateInfo() {
     window.location.href="../secendhtml/infor.html?id="+id;

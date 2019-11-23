@@ -15,4 +15,8 @@
             )
         </foreach>
     </insert>
+    <!--通过inid查找-->
+    <select id="getlist" resultType="com.information.entity.Files">
+        select * from files where inid=#{inid}
+    </select>
 </mapper>
