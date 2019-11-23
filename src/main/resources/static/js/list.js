@@ -47,9 +47,9 @@ $(document.body).on('click', '.search', function () {
                                 "                <td>" + data.obj[i].post + "</td>\n" +
                                 "                <td>" + data.obj[i].nativeplace + "</td>\n" +
                                 "                <td >\n" +
-                                "                    <button class=\"btn btn-primary\" onclick='infor(" + data.obj[i].id + ")'>查看</button>\n" +
-                                "                    <button class=\"btn btn-danger\" onclick='deleteInfo(" + data.obj[i].id + ")'>删除</button>\n" +
-                                "                    <button class=\"btn btn-info\" onclick='editInfo(" + data.obj[i].id + ")'>修改</button>\n" +
+                                "                    <button class=\"btn btn-primary\" onclick='infor(" + "\"" + data.obj[i].id + "\"" + ")'>查看</button>\n" +
+                                "                    <button class=\"btn btn-danger\" onclick='deleteInfo(" + "\"" + data.obj[i].id + "\"" + ")'>删除</button>\n" +
+                                "                    <button class=\"btn btn-info\" onclick='editInfo(" + "\"" + data.obj[i].id + "\"" + ")'>修改</button>\n" +
                                 "                </td>\n" +
                                 "            </tr>";
                         }
@@ -87,6 +87,7 @@ var listInfo = function (pageNo) {
             if (data.success) {
                 if (totalPage != null) {
                     totalPage = data.obj.totalNo;
+                    localStorage.setItem('totalPage', data.obj.totalNo);
                 } else {
                     localStorage.setItem('totalPage', data.obj.totalNo);
                 }

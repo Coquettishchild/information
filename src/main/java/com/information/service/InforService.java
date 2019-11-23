@@ -69,7 +69,7 @@ public class InforService {
                 }
                 fdao.insertList(flist);
             }
-            re.setMessage("插入成功");
+            re.setMessage(infor.getId());
             re.setSuccess(true);
             re.setObj(null);
             logger.info("插入成功");

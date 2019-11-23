@@ -205,6 +205,7 @@ function upload() {
         success: function (req) {
             if (req.success) {
                alert("提交成功");
+               window.location.href="../secendhtml/detail.html?id="+req.message;
             } else {
                 alert("提交失败")
             }
