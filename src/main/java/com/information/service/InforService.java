@@ -1,7 +1,9 @@
 package com.information.service;
 
+import com.information.dao.FilesDao;
 import com.information.dao.InforDao;
 import com.information.dao.RelativeDao;
+import com.information.entity.Files;
 import com.information.entity.Information;
 import com.information.entity.Relative;
 import com.information.vo.ListInfo;
@@ -32,6 +34,9 @@ public class InforService {
 
     @Autowired
     private RelativeDao rdao;
+
+    @Autowired
+    private FilesDao fdao;
     /**
      *
      * @param infor
@@ -44,18 +49,28 @@ public class InforService {
     //先插入主infor，然后批量插入文件和关系
     @Transactional
     public Result insertInfor(Information infor){
-        logger.info(infor);
         Result re = new Result();
         try {
             List<Relative> list = infor.getList();
+            List<Files> flist  = infor.getFilesList();
             String id = (""+UUID.randomUUID()).replaceAll("-","");
             infor.setId(id);
             infor.setList(null);
-            for (Relative relative: list) {
-                relative.setInforid(id);
-            }
+            infor.setFilesList(null);
             idao.insert(infor);
-            rdao.insertList(list);
+            if(list!=null && list.size()>0){
+                for (Relative relative: list) {
+                    relative.setInforid(id);
+                }
+                rdao.insertList(list);
+            }
+            if(flist!=null && flist.size()>0){
+                for (Files files: flist) {
+                    files.setInid(id);
+                    fdao.insert(files);
+                }
+//                fdao.insertList(flist);
+            }
             re.setMessage("插入成功");
             re.setSuccess(true);
             re.setObj(null);

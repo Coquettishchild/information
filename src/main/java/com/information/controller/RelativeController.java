@@ -28,4 +28,5 @@ public class RelativeController {
     public Result add(@RequestBody Relative relative){
         return service.add(relative);
     }
+
 }

@@ -15,7 +15,7 @@ import lombok.Data;
 @TableName("relative")
 public class Relative {
     //id
-    private String rid;
+    private long rid;
     //姓名
     private String name;
     //年龄

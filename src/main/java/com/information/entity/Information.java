@@ -34,10 +34,10 @@ public class Information {
     //健康状况
     private String health;
     //入党时间
-    @JsonFormat(pattern = "yyyy.MM",locale = "zh",timezone = "GMY+8")
+    @JsonFormat(pattern = "yyyy-MM-dd",locale = "zh",timezone = "GMY+8")
     private Date party;
     //参加工作时间
-    @JsonFormat(pattern = "yyyy.MM",locale = "zh",timezone = "GMY+8")
+    @JsonFormat(pattern = "yyyy-MM-dd",locale = "zh",timezone = "GMY+8")
     private Date jointime;
     //职务
     private String post;
@@ -59,5 +59,6 @@ public class Information {
     private String rewards;
     //关系
     private List<Relative> list;
-    //
+    //文件
+    private List<Files> filesList;
 }
