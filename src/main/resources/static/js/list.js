@@ -291,7 +291,7 @@ $(document.body).on("click",".add",function () {
 
 //修改档案信息
 var editInfo = function (id) {
-    window.location.href="../secendhtml/infor.html?id="+id;
+    window.location.href="../secendhtml/update.html?id="+id;
 }
 
 //查看预览
