@@ -1,7 +1,3 @@
-$(function () {
-    listInfo(pageNo);
-})
-
 //通过姓名查询信息
 $(document.body).on('click','.search',function(){
     var name = $('#search').val();
@@ -73,7 +69,6 @@ $(document.body).on('click','.search',function(){
         })
     }
 })
-
 //当前页数
 var pageNo = localStorage.getItem("pageNo");
 var totalPage = localStorage.getItem("totalPage");
@@ -81,6 +76,7 @@ var totalPage = localStorage.getItem("totalPage");
 
 // 生成人员列表
 var listInfo = function(pageNo){
+
     if (pageNo==null){
         pageNo=1;
         localStorage.setItem("pageNo",1)
@@ -107,9 +103,9 @@ var listInfo = function(pageNo){
         }
     })
 }
+function createList(data){
 
 //生成人员列表
-function createList(data){
     $('.list').html("");
     var str = "     <tbody>      <tr>\n" +
         "                <td colspan=\"4\" style=\"text-align: left\">\n" +
@@ -149,14 +145,13 @@ function createList(data){
                 "                <td>" + data.obj.listInfo[i].post + "</td>\n" +
                 "                <td>" + data.obj.listInfo[i].nativeplace + "</td>\n" +
                 "                <td >\n" +
-                "                    <button class=\"btn btn-primary\" onclick='infor(" + data.obj.listInfo[i].id + ")'>查看</button>\n" +
-                "                    <button class=\"btn btn-danger\" onclick='deleteInfo(" + data.obj.listInfo[i].id + ")'>删除</button>\n" +
-                "                    <button class=\"btn btn-info\" onclick='editInfo(" + data.obj.listInfo[i].id + ")'>修改</button>\n" +
+                "                    <button class=\"btn btn-primary\" onclick='infor(" +"\"" +data.obj.listInfo[i].id +"\"" +")'>查看</button>\n" +
+                "                    <button class=\"btn btn-danger\" onclick='deleteInfo('" +"\"" + data.obj.listInfo[i].id +"\"" + "')'>删除</button>\n" +
+                "                    <button class=\"btn btn-info\" onclick='editInfo('" +"\"" + data.obj.listInfo[i].id + "\"" +"')'>修改</button>\n" +
                 "                </td>\n" +
                 "            </tr>";
         }
-    }
-    else {
+    } else {
         $('.page').remove();
         return;
     }
@@ -164,6 +159,7 @@ function createList(data){
     $('.list').html(str);
     fenye(localStorage.getItem('pageNo'),localStorage.getItem('totalPage'));
 }
+
 //分页
 function fenye(pageNo,totalPage){
         var currentPage=Number(pageNo);
@@ -173,90 +169,89 @@ function fenye(pageNo,totalPage){
             localStorage.setItem('pageNo',1);
             window.location.href="./list.html";
         })
-        $("#page_btn2").text(currentPage-2);
-        $("#page_btn2").on("click",function () {
+    $("#page_btn2").text(currentPage-2);
+    $("#page_btn2").on("click",function () {
             localStorage.setItem('pageNo',currentPage-2);
             window.location.href="./list.html";
         })
-        $("#page_btn3").text(currentPage-1);
-        $("#page_btn3").on("click",function () {
+    $("#page_btn3").text(currentPage-1);
+    $("#page_btn3").on("click",function () {
             localStorage.setItem('pageNo',currentPage-1);
             window.location.href="./list.html";
         })
-        $("#page_btn4").text(currentPage);
-        $("#page_btn4").on("click",function () {
+    $("#page_btn4").text(currentPage);
+    $("#page_btn4").on("click",function () {
             localStorage.setItem('pageNo',currentPage);
             window.location.href="./list.html";
         })
-        $("#page_btn5").text(currentPage+1);
-        $("#page_btn5").on("click",function () {
+    $("#page_btn5").text(currentPage+1);
+    $("#page_btn5").on("click",function () {
             localStorage.setItem('pageNo',currentPage+1);
             window.location.href="./list.html";
         })
-        $("#page_btn6").text(currentPage+2);
-        $("#page_btn6").on("click",function () {
+    $("#page_btn6").text(currentPage+2);
+    $("#page_btn6").on("click",function () {
             localStorage.setItem('pageNo',currentPage+2);
             window.location.href="./list.html";
         })
-        $("#page_btn7").text(pageNum);
-        $("#page_btn7").on("click",function () {
+    $("#page_btn7").text(pageNum);
+    $("#page_btn7").on("click",function () {
             localStorage.setItem('pageNo',pageNum);
             window.location.href="./list.html";
         })
-        //可改变当前页的button样式
+    //可改变当前页的button样式
         $("#page_btn4").css("background-color","#4f90fb");
-        $("#page_btn4").css("border","1px solid #ddd");
-        $("#page_btn4").css("color","#fff");
-
+    $("#page_btn4").css("border","1px solid #ddd");
+    $("#page_btn4").css("color","#fff");
         //先处理"上一页"和"下一页"的情况
-        if(currentPage==1)//如果当前页为首页
-        {
-            $("#prePage").hide();
-        }
 
+    if(currentPage==1)//如果当前页为首页
+        {
+        $("#prePage").hide();
+    }
         if(currentPage==pageNum)//如果当前页为末页
         {
+
             $("#sufPage").hide();
         }
-        //处理当前页小于等于3的特殊情况
-        if(currentPage<=3){
-            $("#prePoint").hide();
-            $("#page_btn1").hide();
-        }//当前页是4还需要hide掉第一个省略号按钮（！重要）
+    //处理当前页小于等于3的特殊情况
+    if(currentPage<=3){
+        $("#prePoint").hide();
+        $("#page_btn1").hide();
+    }//当前页是4还需要hide掉第一个省略号按钮（！重要）
         else if(currentPage==4){
             $("#prePoint").hide();
         }
-        //当前页是1还需要hide掉第二第三个按钮
-        if(currentPage==1)
+    //当前页是1还需要hide掉第二第三个按钮
+    if(currentPage==1)
         {
-            $("#page_btn2").hide();
-            $("#page_btn3").hide();
-        }//当前页是2则也需要hide掉第二个按钮（此时为-1）
+        $("#page_btn2").hide();
+        $("#page_btn3").hide();
+    }//当前页是2则也需要hide掉第二个按钮（此时为-1）
         else if(currentPage==2)
         {
             $("#page_btn2").hide();
         }
-        //最末端的特殊情况处理和最前端是一样的
-        if(currentPage>=pageNum-2){
-            $("#sufPoint").hide();
-            $("#page_btn7").hide();
-        }
+    //最末端的特殊情况处理和最前端是一样的
+    if(currentPage>=pageNum-2){
+        $("#sufPoint").hide();
+        $("#page_btn7").hide();
+    }
         else if(currentPage==pageNum-3){
             $("#sufPoint").hide();
         }
-
         if(currentPage==pageNum)
         {
+
             $("#page_btn5").hide();
             $("#page_btn6").hide();
         }
-
         if(currentPage==pageNum-1)
         {
+
             $("#page_btn6").hide();
         }
 }
-
 //上一页
 $(document.body).on("click","#prePage",function () {
     if (pageNo<=1){
@@ -267,7 +262,7 @@ $(document.body).on("click","#prePage",function () {
         localStorage.setItem('totalPage',totalPage);
         window.location.href="./list.html";
     }
-})
+});
 
 //下一页
 $(document.body).on("click","#sufPage",function () {
@@ -279,28 +274,31 @@ $(document.body).on("click","#sufPage",function () {
         localStorage.setItem('totalPage',totalPage);
         window.location.href="./list.html";
     }
-})
+});
 
 var ulList = $('.pagination');
-var child = ulList.children()
 
+var child = ulList.children();
 //添加人员信息
 $(document.body).on("click",".add",function () {
     window.location.href="../secendhtml/infor.html";
-})
+});
 
 //修改档案信息
 var editInfo = function (id) {
+    console.log(id);
     window.location.href="../secendhtml/update.html?id="+id;
 }
 
 //查看预览
 var infor = function(id){
+    console.log(id);
     window.location.href="/information/secendhtml/detail.html?id="+id;
-}
+};
 
 //删除人员信息
 var deleteInfo = function (id) {
+    console.log(id);
     if (confirm("是否确定删除该人员信息？")){
         $.ajax({
             url: "/information/info/"+id,
@@ -314,4 +312,6 @@ var deleteInfo = function (id) {
             }
         })
     }
-}
+};
+// 生成人员列表
+listInfo(pageNo);
