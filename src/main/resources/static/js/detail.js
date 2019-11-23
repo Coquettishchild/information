@@ -75,16 +75,30 @@ var detail = function(id){
                         "            <td>\n" +
                         "                "+list[i].rname+"\n" +
                         "            </td>\n" +
-                        "            <td>\n" +
-                        "                "+list[i].age+"\n" +
-                        "            </td>\n" +
-                        "            <td>\n" +
-                        "                "+list[i].politicaloutlook+"\n" +
-                        "            </td>\n" +
-                        "            <td colspan=\"2\">\n" +
-                        "                "+list[i].workunit+"\n" +
-                        "            </td>\n" +
-                        "        </tr>"
+                        "            <td>\n" ;
+                        if(list[i].age==0){
+                            str+= "                "+" "+"\n" +
+                                "            </td>\n" +
+                                "            <td>\n" +
+                                "                "+list[i].politicaloutlook+"\n" +
+                                "            </td>\n" +
+                                "            <td colspan=\"2\">\n" +
+                                "                "+list[i].workunit+"\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                        }else{
+                            str+= "                "+list[i].age+"\n" +
+                                "            </td>\n" +
+                                "            <td>\n" +
+                                "                "+list[i].politicaloutlook+"\n" +
+                                "            </td>\n" +
+                                "            <td colspan=\"2\">\n" +
+                                "                "+list[i].workunit+"\n" +
+                                "            </td>\n" +
+                                "        </tr>";
+                        }
+
+
                 }
                 str += "</tbody>";
                 $('.relative').html(str);
