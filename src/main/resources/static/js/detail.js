@@ -119,14 +119,14 @@ var detail = function(id){
                             xstr+=" <tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">信访及处理情况</td>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             xinflag++;
                         }else{
                             xstr+=" <tr>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             xinflag++;
@@ -136,14 +136,14 @@ var detail = function(id){
                             qstr+="<tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 70px !important; width: 250px\">因不实报告个人事项收到处理情况</td>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href='/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             qingflag++;
                         }else{
                             qstr+="<tr>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             qingflag++;
@@ -153,14 +153,14 @@ var detail = function(id){
                             tstr+=" <tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">谈话函询初核等有关材料</td>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             tanflag++;
                         }else{
                             tstr+="<tr>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd' >\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             tanflag++;
@@ -170,14 +170,14 @@ var detail = function(id){
                             lstr+=" <tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">党风廉政回复材料</td>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             lianzheng++;
                         }else{
                             lstr+="<tr>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             lianzheng++;
@@ -187,14 +187,14 @@ var detail = function(id){
                             ostr+="<tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">其他材料</td>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"' >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             qita++;
                         }else{
                             ostr+="<tr>\n" +
                                 "            <td colspan=\"6\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"'  >"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>";
                             qita++;

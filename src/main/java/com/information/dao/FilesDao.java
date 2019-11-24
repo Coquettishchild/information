@@ -21,4 +21,6 @@ public interface FilesDao extends BaseMapper<Files> {
     void deletefile(int id)throws Exception;
 
     long insertfile(@Param("files") Files files)throws Exception;
+
+    Files searchById(int id)throws Exception;
 }

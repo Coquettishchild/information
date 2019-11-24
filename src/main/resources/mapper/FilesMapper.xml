@@ -27,4 +27,7 @@
     <insert id="insertfile" useGeneratedKeys="true" keyProperty="fid" keyColumn="fid" >
          insert into `files`(filepath,filedescription,fileflag,inid) values(#{files.filepath},#{files.filedescription},#{files.fileflag},#{files.inid})
     </insert>
+    <select id="searchById" resultType="com.information.entity.Files">
+        select * from files where fid = #{id}
+    </select>
 </mapper>

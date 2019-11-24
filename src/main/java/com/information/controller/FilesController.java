@@ -5,11 +5,21 @@ import com.information.dao.RelativeDao;
 import com.information.entity.Files;
 import com.information.service.FilesService;
 import com.information.vo.Result;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Encoder;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.FileNotFoundException;
@@ -27,13 +37,15 @@ public class FilesController {
     @Autowired
     private FilesService service;
 
+    @Autowired
+    private FilesDao dao;
 
     //文件路径
     private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"static\\files";
-    File filepath;
+    File filepaths;
     {
         try {
-            filepath = ResourceUtils.getFile(PATH);
+            filepaths = ResourceUtils.getFile(PATH);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -55,7 +67,7 @@ public class FilesController {
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
             String fname = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("\\")+1);
-            String filename = filepath.getAbsolutePath()+"\\"+temp+fname;
+            String filename = filepaths.getAbsolutePath()+"\\"+temp+fname;
             File dest = new File(filename);
             if(!dest.exists()){
                 dest.createNewFile();
@@ -73,5 +85,41 @@ public class FilesController {
         }
         return re;
     }
-
+    @GetMapping("/download")
+    public ResponseEntity<byte[]> downloadFile(@RequestParam("id") int fileID, HttpServletRequest req) {
+        Files files = null;
+        try {
+            files = dao.searchById(fileID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        String filepath = filepaths +"\\"+files.getFilepath();
+        String filename = filepath.substring(filepath.lastIndexOf('\\') + 1);
+        //修改文件名编码，防止下载时乱码
+        String userAgent = req.getHeader("USER-AGENT");
+        if (userAgent.contains("Firefox")) {
+            try {
+                filename = "=?utf-8?b?" + new BASE64Encoder().encode(filename.getBytes("utf-8")) + "?=";
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                filename = URLEncoder.encode(filename, "utf-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+        File file = new File(filepath);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachment", filename);
+        try {
+            return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.OK);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

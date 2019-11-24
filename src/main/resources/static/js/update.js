@@ -173,7 +173,7 @@ var detail = function(id){
                             xstr+=" <tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">信访及处理情况</td>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -181,7 +181,7 @@ var detail = function(id){
                         }else{
                             xstr+=" <tr>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -192,7 +192,7 @@ var detail = function(id){
                             qstr+="<tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 70px !important; width: 250px\">因不实报告个人事项收到处理情况</td>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -200,7 +200,7 @@ var detail = function(id){
                         }else{
                             qstr+="<tr>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\"  onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -211,7 +211,7 @@ var detail = function(id){
                             tstr+=" <tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">谈话函询初核等有关材料</td>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -219,7 +219,7 @@ var detail = function(id){
                         }else{
                             tstr+="<tr>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd' >\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -230,7 +230,7 @@ var detail = function(id){
                             lstr+=" <tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">党风廉政回复材料</td>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -238,7 +238,7 @@ var detail = function(id){
                         }else{
                             lstr+="<tr>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -249,7 +249,7 @@ var detail = function(id){
                             ostr+="<tr>\n" +
                                 "            <td  rowspan=\"100\" style=\"line-height: 100px !important; width: 250px\">其他材料</td>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a  href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -257,7 +257,7 @@ var detail = function(id){
                         }else{
                             ostr+="<tr>\n" +
                                 "            <td colspan=\"5\" style='border:1px solid #ddd'>\n" +
-                                "                <a href='../files/"+flist[i].filepath+"'>"+flist[i].filedescription+"</a>\n" +
+                                "                <a href= '/information/files/download?id="+flist[i].fid+"'>"+flist[i].filedescription+"</a>\n" +
                                 "            </td>\n" +
                                 "<td style='border:1px solid #ddd'>   <button class=\"btn btn-danger\" onclick=\"deletefile(this)\"  alt='"+flist[i].fid+"'>删除</button> </td>"+
                                 "        </tr>";
@@ -382,7 +382,7 @@ function uploadfiles(type,file) {
                     i++;
                 }
                 var fid = sessionStorage.getItem("fid");
-                var str ="<a  alt='"+fid+"' href='../files/"+path+"'>"+message+"</a>";
+                var str ="<a  alt='"+fid+"' href= '/information/files/download?id="+fid+"'>"+message+"</a>";
                 $(file).parent().prev().html(str);
                 $(file).parent().prev().css("border","1px solid #ddd");
                 $(file).parent().remove();
