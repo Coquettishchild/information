@@ -157,7 +157,10 @@ function createList(data) {
                 "                </td>\n" +
                 "            </tr>";
         }
-    } else {
+    } else if (data.obj.listInfo.length === 0){
+        $('.page').remove();
+        $('#list').after("<div style='text-align: center;font-size: 16px'>暂无人员信息</div>")
+    }else {
         $('.page').remove();
         return;
     }
