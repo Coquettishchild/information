@@ -144,6 +144,7 @@ function change(temp) {
         success: function (req) {
             if (req.success) {
                 heading = req.obj;
+                sessionStorage.setItem("head",heading);
                 $('#head').html("<img src='../images/"+req.obj+"' style='width: 150px;height: 200px'>");
                 alert("头像上传成功");
             } else {

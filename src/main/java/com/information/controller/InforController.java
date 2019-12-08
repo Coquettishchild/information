@@ -4,12 +4,15 @@ import com.information.entity.Information;
 import com.information.service.InforService;
 import com.information.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -24,12 +27,17 @@ public class InforController {
     @Autowired
     private InforService service;
     //文件路径
-    private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"static\\images";
+    private static final Resource re = new ClassPathResource("static/images");
+
+//    private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"static/images";
     File filepath;
     {
         try {
-            filepath = ResourceUtils.getFile(PATH);
+//            filepath = ResourceUtils.getFile(PATH);
+            filepath=re.getFile();
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -69,8 +77,8 @@ public class InforController {
         Result re = new Result();
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
-            String name  = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("\\")+1);
-            String filename = filepath.getAbsolutePath()+"\\"+temp+name;
+            String name  = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("/")+1);
+            String filename = filepath.getAbsolutePath()+"/"+temp+name;
             File dest = new File(filename);
             if(!dest.exists()){
                 dest.createNewFile();

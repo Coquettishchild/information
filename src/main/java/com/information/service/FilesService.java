@@ -4,10 +4,18 @@ import com.information.dao.FilesDao;
 import com.information.entity.Files;
 import com.information.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
+
+import static com.alibaba.druid.util.FnvHash.Constants.PATH;
+
 /**
  * @description:
  * @author: CrazyChild
@@ -19,10 +27,28 @@ public class FilesService {
 
     @Autowired
     private FilesDao dao;
+    //文件路径
+    private static final Resource re = new ClassPathResource("static/images");
+    File filepaths;
+    {
+        try {
+            filepaths = re.getFile();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Result delete(int id){
         Result re = new Result();
         try{
+            Files files = dao.searchById(id);
+            File file = new File(filepaths.getAbsolutePath()+"/"+files.getFilepath());
+            if(file!=null&&file.exists()){
+                file.delete();
+            }
             dao.deletefile(id);
             re.setSuccess(true);
             re.setMessage("删除成功");

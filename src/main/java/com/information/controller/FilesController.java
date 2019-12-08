@@ -7,6 +7,8 @@ import com.information.service.FilesService;
 import com.information.vo.Result;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -41,13 +43,15 @@ public class FilesController {
     private FilesDao dao;
 
     //文件路径
-    private static final String PATH = ResourceUtils.CLASSPATH_URL_PREFIX+"static\\files";
+    private static final Resource re = new ClassPathResource("static/files");
     File filepaths;
     {
         try {
-            filepaths = ResourceUtils.getFile(PATH);
+            filepaths = re.getFile();
 
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -66,8 +70,8 @@ public class FilesController {
         Result re = new Result();
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
-            String fname = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("\\")+1);
-            String filename = filepaths.getAbsolutePath()+"\\"+temp+fname;
+            String fname = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("/")+1);
+            String filename = filepaths.getAbsolutePath()+"/"+temp+fname;
             File dest = new File(filename);
             if(!dest.exists()){
                 dest.createNewFile();
@@ -94,8 +98,8 @@ public class FilesController {
             e.printStackTrace();
             return null;
         }
-        String filepath = filepaths +"\\"+files.getFilepath();
-        String filename = filepath.substring(filepath.lastIndexOf('\\') + 1);
+        String filepath = filepaths +"/"+files.getFilepath();
+        String filename = filepath.substring(filepath.lastIndexOf('/') + 1);
         //修改文件名编码，防止下载时乱码
         String userAgent = req.getHeader("USER-AGENT");
         if (userAgent.contains("Firefox")) {

@@ -424,7 +424,10 @@ function updateInfo() {
     info.id=id;
     info.sex = $('#sex').val();
     info.birthday = $('#birthday').val();
-    // info.heading = heading;
+    var heading = sessionStorage.getItem("head");
+    if(heading!=null && heading!=""){
+        info.heading = heading;
+    }
     info.nation = $('#nation').val();
     info.nativeplace = $('#nativeplace').val();
     info.birthplace = $('#birthplace').val();
