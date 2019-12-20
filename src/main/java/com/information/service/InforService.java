@@ -91,6 +91,7 @@ public class InforService {
     @Transactional
     public Result updateInfor(Information infor){
         Result re = new Result();
+        System.out.println(infor);
         try{
             List<Relative> list = infor.getList();
             infor.setFilesList(null);
@@ -107,6 +108,7 @@ public class InforService {
             re.setSuccess(true);
             re.setObj(null);
         }catch (Exception e){
+            e.printStackTrace();
             re.setSuccess(false);
             re.setMessage("更新失败");
         }
