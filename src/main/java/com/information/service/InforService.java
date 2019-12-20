@@ -9,7 +9,6 @@ import com.information.entity.Relative;
 import com.information.vo.ListInfo;
 import com.information.vo.PageInfo;
 import com.information.vo.Result;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +26,6 @@ import java.util.UUID;
 @Service
 public class InforService {
 
-    private static final Logger logger = Logger.getLogger(InforService.class);
 
     @Autowired
     private InforDao idao;
@@ -72,12 +70,10 @@ public class InforService {
             re.setMessage(infor.getId());
             re.setSuccess(true);
             re.setObj(null);
-            logger.info("插入成功");
         } catch (Exception e) {
             re.setSuccess(false);
             re.setMessage("插入失败");
             re.setObj(null);
-            logger.info("插入失败",e);
         }
         return re;
     }
@@ -110,11 +106,9 @@ public class InforService {
             re.setMessage("更新成功");
             re.setSuccess(true);
             re.setObj(null);
-            logger.info("更新成功");
         }catch (Exception e){
             re.setSuccess(false);
             re.setMessage("更新失败");
-            logger.info("更新失败",e);
         }
         return re;
     }
@@ -136,12 +130,10 @@ public class InforService {
             re.setMessage("删除成功");
             re.setSuccess(true);
             re.setObj(null);
-            logger.info("删除成功");
         }catch (Exception e){
             re.setSuccess(false);
             re.setMessage("删除失败");
             re.setObj(null);
-            logger.info("删除失败",e);
         }
         return re;
     }
@@ -157,7 +149,7 @@ public class InforService {
      */
     public Result getAll(int pageNo){
         Result re = new Result();
-        int pageSize = 2;
+        int pageSize = 10;
         //因为MySQL limit初始行为 0
         try {
             Double totalNo = idao.getTotalNo();
@@ -186,7 +178,6 @@ public class InforService {
                 re.setObj(page);
                 re.setMessage("查找成功");
                 re.setSuccess(true);
-                logger.info("分页查找成功");
             }else {
                 Double totalPageNo = Math.ceil(totalNo/pageSize);
                 PageInfo page = new PageInfo();
@@ -194,13 +185,11 @@ public class InforService {
                 re.setMessage("查找失败，当前页数大于总页数");
                 re.setSuccess(false);
                 re.setObj(page);
-                logger.info("当前页数大于总页数");
             }
         } catch (Exception e) {
             re.setMessage("查找失败");
             re.setSuccess(false);
             re.setObj(null);
-            logger.info("分页查找失败",e);
         }
         return re;
     }
@@ -217,7 +206,6 @@ public class InforService {
     public Result getDetail(String id){
         Result re = new Result();
         try {
-            System.out.println(id);
             Information in = idao.getInformation(id);
             List<Files> list = fdao.getlist(id);
             if(list!=null){
@@ -228,12 +216,10 @@ public class InforService {
             re.setObj(in);
             re.setSuccess(true);
             re.setMessage("查找成功");
-            logger.info("文件查找成功");
         } catch (Exception e) {
             re.setSuccess(false);
             re.setMessage("查找失败");
             re.setObj(null);
-            logger.info("文件查找失败",e);
         }
         return  re;
     }
@@ -254,12 +240,10 @@ public class InforService {
             re.setObj(list);
             re.setMessage("查询成功");
             re.setSuccess(true);
-            logger.info("用户名查找成功");
         } catch (Exception e) {
             re.setSuccess(false);
             re.setMessage("查询失败");
             re.setObj(null);
-            logger.info("用户名查找失败",e);
         }
         return re;
     }

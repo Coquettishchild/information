@@ -77,7 +77,13 @@ public class InforController {
         Result re = new Result();
         try{
             String temp = (UUID.randomUUID()+" ").replaceAll("-","").substring(0,6)+"-";
-            String name  = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("/")+1);
+            int index = file.getOriginalFilename().lastIndexOf("/");
+            String name="";
+            if(index==-1){
+                name  = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("\\")+1);
+            }else{
+                name  = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("/")+1);
+            }
             String filename = filepath.getAbsolutePath()+"/"+temp+name;
             File dest = new File(filename);
             if(!dest.exists()){

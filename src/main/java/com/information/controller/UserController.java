@@ -3,7 +3,6 @@ package com.information.controller;
 import com.information.entity.User;
 import com.information.service.InforService;
 import com.information.vo.Result;
-import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
 
-    private static final Logger logger = Logger.getLogger(UserController.class);
 
     @PostMapping("/login")
     public Result login(@RequestBody User user, HttpServletRequest req){
@@ -31,12 +29,10 @@ public class UserController {
             req.getSession().setAttribute("user",user);
             re.setObj(null);
             re.setSuccess(true);
-            logger.info("登陆成功");
         }else{
             re.setSuccess(false);
             re.setObj(null);
             re.setMessage("登录失败");
-            logger.info("登录失败");
         }
         return re;
     }
