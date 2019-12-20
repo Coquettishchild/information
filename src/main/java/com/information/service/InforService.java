@@ -217,9 +217,14 @@ public class InforService {
     public Result getDetail(String id){
         Result re = new Result();
         try {
+            System.out.println(id);
             Information in = idao.getInformation(id);
             List<Files> list = fdao.getlist(id);
-            in.setFilesList(list);
+            if(list!=null){
+                in.setFilesList(list);
+            }else{
+                in.setFilesList(null);
+            }
             re.setObj(in);
             re.setSuccess(true);
             re.setMessage("查找成功");

@@ -15,7 +15,7 @@ import java.util.List;
 @Mapper
 public interface InforDao extends BaseMapper<Information> {
 
-     Information getInformation(String id)throws  Exception;
+     Information getInformation(@Param("id") String id)throws  Exception;
 
      List<Information> getAll(@Param("pageNo") int pageNo,@Param("pageSize") int pageSize)throws Exception;
 

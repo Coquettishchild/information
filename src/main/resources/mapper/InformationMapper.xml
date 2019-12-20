@@ -55,7 +55,7 @@
         <result column="rewards" property="rewards"/>
     </resultMap>
     <select id="getInformation" resultMap="infor">
-        select information.*,`relative`.* from information,`relative` where inforid = id and id =#{id}
+      select information.* from information LEFT JOIN `relative` on inforid = id where information.id =#{id}
     </select>
 
     <select id="getAll" resultMap="infors">
