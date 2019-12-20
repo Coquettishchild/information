@@ -161,7 +161,7 @@ public class InforService {
         //因为MySQL limit初始行为 0
         try {
             Double totalNo = idao.getTotalNo();
-            if (pageNo<=totalNo){
+            if (pageNo<=totalNo||totalNo==0){
                 pageNo = (pageNo-1)*pageSize;
                 List<Information> list = idao.getAll(pageNo,pageSize);
                 Double totalPageNo = Math.ceil(totalNo/pageSize);
