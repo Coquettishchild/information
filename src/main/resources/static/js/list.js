@@ -305,8 +305,8 @@ var deleteInfo = function (id) {
     console.log(id);
     if (confirm("是否确定删除该人员信息？")) {
         $.ajax({
-            url: "/information/info/" + id,
-            type: "DELETE",
+            url: "/information/info/delete/" + id,
+            type: "POST",
             success: function (data) {
                 if (data.success) {
                     alert("删除成功");

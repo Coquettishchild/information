@@ -52,7 +52,7 @@ public class InforController {
         return service.getDetail(id);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     public Result deletInfo(@PathVariable("id") String id){
         return service.delete(id);
     }
@@ -67,7 +67,7 @@ public class InforController {
         return service.insertInfor(obj);
     }
 
-    @PatchMapping
+    @PostMapping("/update")
     public Result updateInfo(@RequestBody Information obj) {
         return service.updateInfor(obj);
     }

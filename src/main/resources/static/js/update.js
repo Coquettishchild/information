@@ -465,10 +465,10 @@ function updateInfo() {
     }
     info.list = list;
     $.ajax({
-        url: '/information/info',
+        url: '/information/info/update',
         data: JSON.stringify(info),
         contentType : "application/json;charsetset=UTF-8",
-        type: 'PATCH',
+        type: 'POST',
         success: function (req) {
             if (req.success) {
                 alert("提交成功");

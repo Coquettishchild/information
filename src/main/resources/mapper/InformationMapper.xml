@@ -55,8 +55,7 @@
         <result column="rewards" property="rewards"/>
     </resultMap>
     <select id="getInformation" resultMap="infor">
-      select information.* from information LEFT JOIN `relative` on inforid = id where information.id =#{id}
-    </select>
+    </select> select information.*,relative.* from information LEFT OUTER JOIN `relative` on inforid = id where information.id =#{id}
 
     <select id="getAll" resultMap="infors">
         select * from information limit #{pageNo},#{pageSize}
